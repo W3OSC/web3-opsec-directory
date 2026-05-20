@@ -1,0 +1,9 @@
+{
+  "slug": "conduit",
+  "name": "Conduit",
+  "description": "Connect AI agents to all your accounts with human-in-the-loop approvals, fine-grained access control, and detailed audit logs.",
+  "repo_url": "https://github.com/w3osc/conduit",
+  "maintainer_slug": "auditware",
+  "tags": ["ai-security", "access-control", "audit", "open-source"],
+  "stars": 4
+}

@@ -1,0 +1,50 @@
+{
+  "slug": "auditware",
+  "name": "Auditware",
+  "description": "Web3 security firm specializing in opsec, operational security assessments, and infrastructure hardening for crypto-native organizations.",
+  "website": "https://auditware.io",
+  "logo": "/logos/auditware.png",
+  "services": ["opsec", "infrastructure", "web2-security"],
+  "tags": ["opsec", "web3", "seal-certified"],
+  "endorsed": true,
+  "github": "https://github.com/w3osc",
+  "twitter": "https://twitter.com/audit_wizard",
+  "open_source_repos": [
+    {
+      "name": "W3OS Directory",
+      "url": "https://github.com/w3osc/web3-opsec-directory",
+      "description": "Open-source curated directory of web3 security firms and opsec tools.",
+      "tool_slug": "web3-opsec-directory"
+    },
+    {
+      "name": "Web3 OpSec Standard",
+      "url": "https://github.com/w3osc/web3-opsec-standard",
+      "description": "Community-driven framework defining opsec requirements for crypto-native organizations.",
+      "tool_slug": "web3-opsec-standard"
+    },
+    {
+      "name": "Depenemy",
+      "url": "https://github.com/w3osc/depenemy",
+      "description": "Scan your dependencies for supply chain risks.",
+      "tool_slug": "depenemy"
+    },
+    {
+      "name": "Skill Warden",
+      "url": "https://github.com/w3osc/skill-warden",
+      "description": "Security scanner for AI skills - prompt injection, jailbreaks, secret grabbing.",
+      "tool_slug": "skill-warden"
+    },
+    {
+      "name": "MultisigMonitor",
+      "url": "https://github.com/w3osc/multisigmonitor",
+      "description": "Real-time monitoring for Safe{wallet} multisig wallets.",
+      "tool_slug": "multisigmonitor"
+    },
+    {
+      "name": "Conduit",
+      "url": "https://github.com/w3osc/conduit",
+      "description": "Connect AI agents to your accounts with human-in-the-loop approvals and audit logs.",
+      "tool_slug": "conduit"
+    }
+  ]
+}

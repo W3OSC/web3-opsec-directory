@@ -1,0 +1,9 @@
+{
+  "slug": "skill-warden",
+  "name": "Skill Warden",
+  "description": "Security scanner for AI skills - detects prompt injection, jailbreaks, secret grabbing, and more.",
+  "repo_url": "https://github.com/w3osc/skill-warden",
+  "maintainer_slug": "auditware",
+  "tags": ["ai-security", "prompt-injection", "scanner", "open-source"],
+  "stars": 1
+}

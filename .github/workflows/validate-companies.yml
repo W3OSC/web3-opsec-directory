@@ -1,0 +1,26 @@
+name: Validate Data
+
+on:
+  pull_request:
+    paths:
+      - "data/companies/**"
+      - "data/tools/**"
+      - "data/company.schema.json"
+      - "data/tool.schema.json"
+
+jobs:
+  validate:
+    name: Validate company + tool JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install deps
+        run: bun install
+
+      - name: Validate all data files (+ cross-references)
+        run: bun run validate

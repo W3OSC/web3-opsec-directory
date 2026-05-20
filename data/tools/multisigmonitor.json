@@ -1,0 +1,9 @@
+{
+  "slug": "multisigmonitor",
+  "name": "MultisigMonitor",
+  "description": "Analysis and real-time monitoring tool for Safe{wallet} multisig wallets - track signers, thresholds, and transaction activity.",
+  "repo_url": "https://github.com/w3osc/multisigmonitor",
+  "maintainer_slug": "auditware",
+  "tags": ["multisig", "safe", "monitoring", "web3", "open-source"],
+  "stars": 3
+}
