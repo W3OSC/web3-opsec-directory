@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://w3os.org/schemas/company.json",
+  "title": "W3OS Company",
+  "description": "A curated web3 security firm listed on W3OS",
+  "type": "object",
+  "required": ["slug", "name", "description", "website", "services", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": {
+      "type": "string",
+      "description": "URL-safe unique identifier. Must match the filename (without .json).",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 2,
+      "maxLength": 64
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the company.",
+      "minLength": 2,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description shown on the card (1-3 sentences).",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "website": {
+      "type": "string",
+      "description": "Primary website URL.",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "logo": {
+      "type": "string",
+      "description": "URL to logo image (https) or empty string.",
+      "oneOf": [
+        { "const": "" },
+        { "pattern": "^https://", "minLength": 10 }
+      ]
+    },
+    "services": {
+      "type": "array",
+      "description": "Service categories offered.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "opsec",
+          "infrastructure",
+          "web2-security",
+          "threat-intelligence",
+          "incident-response",
+          "red-team",
+          "security-training",
+          "devsecops",
+          "physical-security",
+          "osint",
+          "blockchain-forensics",
+          "key-management"
+        ]
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Filterable tags for discovery.",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+        "maxLength": 32
+      }
+    },
+    "endorsed": {
+      "type": "boolean",
+      "description": "W3OS-endorsed badge. Set by maintainers only.",
+      "default": false
+    },
+    "github": {
+      "type": ["string", "null"],
+      "description": "GitHub org/profile URL.",
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^https://github\\.com/", "minLength": 20 }
+      ]
+    },
+    "twitter": {
+      "type": ["string", "null"],
+      "description": "Twitter/X profile URL.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "pattern": "^https://(twitter|x)\\.com/",
+          "minLength": 20
+        }
+      ]
+    },
+    "open_source_repos": {
+      "type": "array",
+      "description": "Public repos maintained by this company.",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "required": ["name", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "pattern": "^https://", "format": "uri" },
+          "description": { "type": "string", "maxLength": 200 },
+          "tool_slug": {
+            "type": "string",
+            "description": "Links to a slug in data/tools/ for rich cross-referencing.",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        }
+      }
+    }
+  }
+}

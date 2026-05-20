@@ -1,0 +1,9 @@
+{
+  "slug": "web3-opsec-standard",
+  "name": "Web3 OpSec Standard",
+  "description": "The Web3 Operational Security Standard (W3OS) - a community-driven framework defining opsec requirements for crypto-native organizations.",
+  "repo_url": "https://github.com/w3osc/web3-opsec-standard",
+  "maintainer_slug": "auditware",
+  "tags": ["standard", "framework", "opsec", "web3", "open-source"],
+  "stars": 30
+}

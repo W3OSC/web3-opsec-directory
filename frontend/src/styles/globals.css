@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  @apply bg-surface text-white antialiased;
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-raised border border-surface-border rounded-xl p-6 transition-colors hover:border-brand/40;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-black font-semibold px-4 py-2 rounded-lg hover:bg-brand-dim transition-colors;
+  }
+
+  .btn-secondary {
+    @apply border border-surface-border text-white px-4 py-2 rounded-lg hover:border-brand/60 transition-colors;
+  }
+
+  .tag {
+    @apply text-xs font-medium px-2 py-0.5 rounded-full border;
+  }
+}

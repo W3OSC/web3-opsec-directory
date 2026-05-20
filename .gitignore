@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Build output
+dist/
+build/
+
+# Backend data (never commit DB)
+backend/data/*.db
+backend/data/*.db-wal
+backend/data/*.db-shm
+
+# Secrets (git-secret manages these)
+secrets/.env.backend.local
+secrets/.env.backend.prod
+secrets/.env.frontend.prod
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Lockfiles (bun.lock is canonical)
+bun.lockb
+package-lock.json
+yarn.lock
+
+# Env
+.env
+.env.local
+.env.*.local

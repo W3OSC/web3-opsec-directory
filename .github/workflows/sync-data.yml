@@ -1,0 +1,57 @@
+name: Sync company data to production
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/companies/**"
+      - "data/tools/**"
+      - "data/company.schema.json"
+      - "data/tool.schema.json"
+
+jobs:
+  sync:
+    name: Sync data → server → reload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate company data
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install && bun run validate
+
+      - name: Rsync data/ to server
+        env:
+          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
+          GCP_HOST: ${{ secrets.GCP_HOST }}
+          PROD_PATH: /var/www/w3os
+        run: |
+          echo "$SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
+          rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
+            data/companies/ ${GCP_HOST}:${PROD_PATH}/data/companies/
+          rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
+            data/tools/ ${GCP_HOST}:${PROD_PATH}/data/tools/
+
+      - name: Reload backend (re-seeds DB from new JSON)
+        env:
+          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
+          GCP_HOST: ${{ secrets.GCP_HOST }}
+        run: |
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_HOST} \
+            "pm2 reload w3os-backend --update-env"
+
+      - name: Health check
+        env:
+          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
+          GCP_HOST: ${{ secrets.GCP_HOST }}
+        run: |
+          sleep 3
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_HOST} \
+            "curl -sf http://localhost:3001/health"
+
+      - name: Cleanup
+        if: always()
+        run: rm -f /tmp/deploy_key
