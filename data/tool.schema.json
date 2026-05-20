@@ -46,6 +46,11 @@
     "stars": {
       "type": ["integer", "null"],
       "minimum": 0
+    },
+    "pinned": {
+      "type": "boolean",
+      "description": "Pins this tool to the top of listings. Set by maintainers only.",
+      "default": false
     }
   }
 }
