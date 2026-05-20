@@ -34,10 +34,11 @@
     },
     "logo": {
       "type": "string",
-      "description": "URL to logo image (https) or empty string.",
+      "description": "URL to logo image (https or /logos/ relative path) or empty string.",
       "oneOf": [
         { "const": "" },
-        { "pattern": "^https://", "minLength": 10 }
+        { "pattern": "^https://", "minLength": 10 },
+        { "pattern": "^/logos/", "minLength": 8 }
       ]
     },
     "services": {
