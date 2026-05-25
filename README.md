@@ -38,7 +38,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Running Tests
 
 ```bash
-cd backend && c
+cd backend && bun test
 ```
 
 ## Project Structure
