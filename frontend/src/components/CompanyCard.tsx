@@ -33,36 +33,30 @@ export default function CompanyCard({ company }: { company: Company }) {
         </div>
         <div className="flex gap-2 flex-shrink-0">
           {company.github && (
-            <a
-              href={company.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.github, "_blank", "noopener,noreferrer"); }}
               className="text-gray-500 hover:text-white transition-colors"
             >
               <Github size={16} />
-            </a>
+            </button>
           )}
           {company.twitter && (
-            <a
-              href={company.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.twitter, "_blank", "noopener,noreferrer"); }}
               className="text-gray-500 hover:text-white transition-colors"
             >
               <Twitter size={16} />
-            </a>
+            </button>
           )}
-          <a
-            href={company.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
+          <button
+            type="button"
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(company.website, "_blank", "noopener,noreferrer"); }}
             className="text-gray-500 hover:text-white transition-colors"
           >
             <Globe size={16} />
-          </a>
+          </button>
         </div>
       </div>
 
