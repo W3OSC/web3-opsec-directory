@@ -39,3 +39,9 @@ yarn.lock
 .env
 .env.local
 .env.*.local
+deploy.env
+
+# git-secret local GPG state
+.gitsecret/keys/pubring.kbx~
+.gitsecret/keys/random_seed
+.gitsecret/keys/tofu.db
