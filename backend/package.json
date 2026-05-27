@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "start": "bun run src/index.ts"
+    "start": "bun run src/index.ts",
+    "test": "DATABASE_URL=:memory: bun test src/__tests__"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",

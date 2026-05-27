@@ -16,6 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Git Secret Reveal
+        uses: entrostat/git-secret-action@v4
+        with:
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-private-key-passphrase: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
+
       - name: Validate company data
         uses: oven-sh/setup-bun@v2
         with:
@@ -24,32 +30,25 @@ jobs:
       - run: bun install && bun run validate
 
       - name: Rsync data/ to server
-        env:
-          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
-          GCP_HOST: ${{ secrets.GCP_HOST }}
-          PROD_PATH: /var/www/w3os
         run: |
-          echo "$SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
+          set -a && source ./deploy.env && set +a
+          echo "$GCP_SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
           rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
-            data/companies/ ${GCP_HOST}:${PROD_PATH}/data/companies/
+            data/companies/ ${GCP_USER}@${GCP_HOST}:/var/www/w3os/data/companies/
           rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
-            data/tools/ ${GCP_HOST}:${PROD_PATH}/data/tools/
+            data/tools/ ${GCP_USER}@${GCP_HOST}:/var/www/w3os/data/tools/
 
       - name: Reload backend (re-seeds DB from new JSON)
-        env:
-          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
-          GCP_HOST: ${{ secrets.GCP_HOST }}
         run: |
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_HOST} \
+          set -a && source ./deploy.env && set +a
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_USER}@${GCP_HOST} \
             "pm2 reload w3os-backend --update-env"
 
       - name: Health check
-        env:
-          SSH_KEY: ${{ secrets.GCP_SSH_KEY }}
-          GCP_HOST: ${{ secrets.GCP_HOST }}
         run: |
+          set -a && source ./deploy.env && set +a
           sleep 3
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_HOST} \
+          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_USER}@${GCP_HOST} \
             "curl -sf http://localhost:3001/health"
 
       - name: Cleanup
