@@ -78,6 +78,7 @@ jobs:
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost "
             command -v rsync >/dev/null || sudo apt-get install -y rsync
+            command -v bun >/dev/null || (curl -fsSL https://bun.sh/install | bash && export PATH=\"\$HOME/.bun/bin:\$PATH\")
             mkdir -p /var/www/w3os/frontend/.next/standalone/.next/static
             mkdir -p /var/www/w3os/frontend/.next/standalone/public
             mkdir -p /var/www/w3os/secrets
@@ -113,14 +114,14 @@ jobs:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "cd /var/www/w3os/backend && bun install --production"
+            "export PATH=\"\$HOME/.bun/bin:\$PATH\" && cd /var/www/w3os/backend && bun install --production"
 
       - name: Restart services
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "cd /var/www/w3os && pm2 reload ecosystem.prod.config.js --update-env || pm2 start ecosystem.prod.config.js"
+            "export PATH=\"\$HOME/.bun/bin:\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && cd /var/www/w3os && pm2 reload ecosystem.prod.config.js --update-env || pm2 start ecosystem.prod.config.js"
 
       - name: Health check
         env:
@@ -128,12 +129,12 @@ jobs:
         run: |
           sleep 5
           HEALTH=$(ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "curl -sf http://localhost:3001/health || echo FAILED")
+            "export PATH=\"\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && curl -sf http://localhost:3001/health || echo FAILED")
           if [ "$HEALTH" = "ok" ]; then
             echo "Backend healthy"
           else
             ssh $SSH_OPTS ${GCP_USER}@localhost \
-              "pm2 --nostream logs w3os-backend --lines 30 --err"
+              "export PATH=\"\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && pm2 --nostream logs w3os-backend --lines 30 --err"
             exit 1
           fi
 
