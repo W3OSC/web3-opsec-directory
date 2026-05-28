@@ -99,6 +99,7 @@ export default async function ToolPage({
               <img
                 src={maintainer.logo}
                 alt={maintainer.name}
+                loading="lazy"
                 className="w-8 h-8 rounded-md object-contain bg-surface-border flex-shrink-0"
               />
             ) : (

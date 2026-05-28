@@ -12,6 +12,7 @@ export default function CompanyCard({ company }: { company: Company }) {
             <img
               src={company.logo}
               alt={company.name}
+              loading="lazy"
               className="w-10 h-10 rounded-lg object-contain bg-surface-border flex-shrink-0"
             />
           ) : (

@@ -93,6 +93,7 @@ export default async function CompanyPage({
               <img
                 src={company.logo}
                 alt={company.name}
+                loading="lazy"
                 className="w-16 h-16 rounded-xl object-contain bg-surface-border"
               />
             ) : (

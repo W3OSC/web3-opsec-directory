@@ -24,6 +24,7 @@ export default function SidebarRow(props: Props) {
           <img
             src={(item as Company).logo}
             alt={item.name}
+            loading="lazy"
             className="w-7 h-7 rounded-md object-contain bg-surface-border flex-shrink-0"
           />
         ) : (

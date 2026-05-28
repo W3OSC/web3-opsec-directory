@@ -19,6 +19,7 @@ export default function CompanyPanel({
           <img
             src={company.logo}
             alt={company.name}
+            loading="lazy"
             className="w-14 h-14 rounded-xl object-contain bg-surface-border flex-shrink-0"
           />
         ) : (
