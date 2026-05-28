@@ -79,8 +79,9 @@ jobs:
           ssh $SSH_OPTS ${GCP_USER}@localhost "
             command -v rsync >/dev/null || sudo apt-get install -y rsync
             command -v unzip >/dev/null || sudo apt-get install -y unzip
+            command -v node >/dev/null || (curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs)
             command -v bun >/dev/null || (curl -fsSL https://bun.sh/install | bash)
-            export PATH=\"\$HOME/.bun/bin:\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\"
+            export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\"
             command -v pm2 >/dev/null || bun add -g pm2
             mkdir -p /var/www/w3os/frontend/.next/standalone/.next/static
             mkdir -p /var/www/w3os/frontend/.next/standalone/public
