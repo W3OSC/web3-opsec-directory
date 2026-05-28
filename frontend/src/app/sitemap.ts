@@ -8,12 +8,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .then((r) => r.json())
     .catch(() => []);
 
-  const companyRoutes = companies.map((c: { slug: string; createdAt: string }) => ({
-    url: `${SITE_URL}/company/${c.slug}`,
-    lastModified: new Date(c.createdAt),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
+  const companyRoutes = companies
+    .filter((c: { slug: string; createdAt: string }) => {
+      const d = new Date(c.createdAt);
+      return c.slug && !isNaN(d.getTime());
+    })
+    .map((c: { slug: string; createdAt: string }) => ({
+      url: `${SITE_URL}/company/${c.slug}`,
+      lastModified: new Date(c.createdAt),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    }));
 
   return [
     { url: SITE_URL, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
