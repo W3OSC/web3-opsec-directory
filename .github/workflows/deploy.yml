@@ -117,14 +117,14 @@ jobs:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "export PATH=\"\$HOME/.bun/bin:\$PATH\" && cd /var/www/w3os/backend && bun install --production"
+            "export PATH=\"/home/${GCP_USER}/.bun/bin:\$PATH\" && cd /var/www/w3os/backend && bun install --production"
 
       - name: Restart services
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "export PATH=\"\$HOME/.bun/bin:\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && cd /var/www/w3os && pm2 reload ecosystem.prod.config.js --update-env || pm2 start ecosystem.prod.config.js"
+            "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && cd /var/www/w3os && pm2 reload ecosystem.prod.config.js --update-env || pm2 start ecosystem.prod.config.js"
 
       - name: Health check
         env:
@@ -132,12 +132,12 @@ jobs:
         run: |
           sleep 5
           HEALTH=$(ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "export PATH=\"\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && curl -sf http://localhost:3001/health || echo FAILED")
+            "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && curl -sf http://localhost:3001/health || echo FAILED")
           if [ "$HEALTH" = "ok" ]; then
             echo "Backend healthy"
           else
             ssh $SSH_OPTS ${GCP_USER}@localhost \
-              "export PATH=\"\$HOME/.npm-global/bin:/usr/local/bin:\$PATH\" && pm2 --nostream logs w3os-backend --lines 30 --err"
+              "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && pm2 --nostream logs w3os-backend --lines 30 --err"
             exit 1
           fi
 
