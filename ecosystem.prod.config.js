@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "w3os-frontend",
       script: "node",
-      args: ".next/standalone/server.js",
+      args: ".next/standalone/frontend/server.js",
       cwd: "/var/www/w3os/frontend",
       env: {
         NODE_ENV: "production",
