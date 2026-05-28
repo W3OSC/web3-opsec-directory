@@ -72,6 +72,13 @@ jobs:
           echo $! > /tmp/iap_tunnel.pid
           timeout 30 bash -c 'until nc -z localhost 2222; do sleep 1; done'
 
+      - name: Ensure rsync on server
+        env:
+          SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+        run: |
+          ssh $SSH_OPTS ${GCP_USER}@localhost \
+            "command -v rsync >/dev/null || sudo apt-get install -y rsync"
+
       - name: Rsync app to server
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
