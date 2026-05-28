@@ -11,7 +11,7 @@ on:
 
 jobs:
   sync:
-    name: Sync data → server → reload
+    name: Sync data - server - reload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -29,28 +29,56 @@ jobs:
 
       - run: bun install && bun run validate
 
-      - name: Rsync data/ to server
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Load deploy config
         run: |
           set -a && source ./deploy.env && set +a
           echo "$GCP_SSH_KEY" > /tmp/deploy_key && chmod 600 /tmp/deploy_key
-          rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
-            data/companies/ ${GCP_USER}@${GCP_HOST}:/var/www/w3os/data/companies/
-          rsync -Pazv -e "ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no" \
-            data/tools/ ${GCP_USER}@${GCP_HOST}:/var/www/w3os/data/tools/
+          echo "GCP_PROJECT=$GCP_PROJECT"   >> $GITHUB_ENV
+          echo "GCP_ZONE=$GCP_ZONE"         >> $GITHUB_ENV
+          echo "GCP_INSTANCE=$GCP_INSTANCE" >> $GITHUB_ENV
+          echo "GCP_USER=$GCP_USER"         >> $GITHUB_ENV
+
+      - name: Open IAP tunnel
+        run: |
+          gcloud compute start-iap-tunnel "$GCP_INSTANCE" 22 \
+            --local-host-port=localhost:2222 \
+            --zone="$GCP_ZONE" \
+            --project="$GCP_PROJECT" &
+          echo $! > /tmp/iap_tunnel.pid
+          timeout 30 bash -c 'until nc -z localhost 2222; do sleep 1; done'
+
+      - name: Rsync data/ to server
+        env:
+          SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+        run: |
+          rsync -Pazv -e "ssh $SSH_OPTS" \
+            data/companies/ ${GCP_USER}@localhost:/var/www/w3os/data/companies/
+          rsync -Pazv -e "ssh $SSH_OPTS" \
+            data/tools/ ${GCP_USER}@localhost:/var/www/w3os/data/tools/
 
       - name: Reload backend (re-seeds DB from new JSON)
+        env:
+          SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
-          set -a && source ./deploy.env && set +a
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_USER}@${GCP_HOST} \
-            "pm2 reload w3os-backend --update-env"
+          ssh $SSH_OPTS ${GCP_USER}@localhost "pm2 reload w3os-backend --update-env"
 
       - name: Health check
+        env:
+          SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
-          set -a && source ./deploy.env && set +a
           sleep 3
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ${GCP_USER}@${GCP_HOST} \
-            "curl -sf http://localhost:3001/health"
+          ssh $SSH_OPTS ${GCP_USER}@localhost "curl -sf http://localhost:3001/health"
 
       - name: Cleanup
         if: always()
-        run: rm -f /tmp/deploy_key
+        run: |
+          rm -f /tmp/deploy_key
+          [ -f /tmp/iap_tunnel.pid ] && kill $(cat /tmp/iap_tunnel.pid) 2>/dev/null || true
+          rm -f /tmp/iap_tunnel.pid
