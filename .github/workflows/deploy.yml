@@ -77,7 +77,7 @@ jobs:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
           ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "command -v rsync >/dev/null || sudo apt-get install -y rsync"
+            "command -v rsync >/dev/null || sudo apt-get install -y rsync; sudo mkdir -p /var/www/w3os && sudo chown ${GCP_USER}:${GCP_USER} /var/www/w3os"
 
       - name: Rsync app to server
         env:
