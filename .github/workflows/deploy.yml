@@ -86,6 +86,7 @@ jobs:
             mkdir -p /var/www/w3os/frontend/.next/standalone/.next/static
             mkdir -p /var/www/w3os/frontend/.next/standalone/public
             mkdir -p /var/www/w3os/secrets
+            mkdir -p /var/www/w3os/backend/data
           "
 
       - name: Rsync app to server
@@ -138,7 +139,7 @@ jobs:
             echo "Backend healthy"
           else
             ssh $SSH_OPTS ${GCP_USER}@localhost \
-              "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && pm2 --nostream logs w3os-backend --lines 30 --err"
+              "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && pm2 logs w3os-backend --lines 30 --nostream"
             exit 1
           fi
 
