@@ -76,8 +76,12 @@ jobs:
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
-          ssh $SSH_OPTS ${GCP_USER}@localhost \
-            "command -v rsync >/dev/null || sudo apt-get install -y rsync; sudo mkdir -p /var/www/w3os && sudo chown ${GCP_USER}:${GCP_USER} /var/www/w3os"
+          ssh $SSH_OPTS ${GCP_USER}@localhost "
+            command -v rsync >/dev/null || sudo apt-get install -y rsync
+            mkdir -p /var/www/w3os/frontend/.next/standalone/.next/static
+            mkdir -p /var/www/w3os/frontend/.next/standalone/public
+            mkdir -p /var/www/w3os/secrets
+          "
 
       - name: Rsync app to server
         env:
@@ -101,7 +105,6 @@ jobs:
           rsync -Pazv -e "ssh $SSH_OPTS" \
             frontend/public/ ${TARGET}:/var/www/w3os/frontend/.next/standalone/public/
 
-          ssh $SSH_OPTS ${TARGET} "mkdir -p /var/www/w3os/secrets"
           rsync -Pzv -e "ssh $SSH_OPTS" secrets/.env.backend.prod ${TARGET}:/var/www/w3os/secrets/
           rsync -Pzv -e "ssh $SSH_OPTS" secrets/.env.frontend.prod ${TARGET}:/var/www/w3os/secrets/
 
