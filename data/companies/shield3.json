@@ -9,5 +9,12 @@
   "endorsed": false,
   "github": "https://github.com/0xShield3",
   "twitter": "https://x.com/Shield3Sec",
-  "open_source_repos": []
+  "open_source_repos": [
+    {
+      "name": "Sky Safe TX Decoder",
+      "url": "https://github.com/0xShield3/sky-safe-tx-decoder",
+      "description": "Independently verify Safe multisig transaction hashes before signing, with security analysis for delegate calls and owner modifications.",
+      "tool_slug": "sky-safe-tx-decoder"
+    }
+  ]
 }
