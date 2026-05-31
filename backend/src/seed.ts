@@ -15,6 +15,8 @@ export async function seedCompanies() {
   }
 
   const jsonFiles = files.filter((f) => f.endsWith(".json"));
+  const activeSlugs = jsonFiles.map((f) => f.replace(/\.json$/, ""));
+
   for (const file of jsonFiles) {
     const c = JSON.parse(await readFile(join(COMPANIES_DIR, file), "utf-8"));
     db.run(
@@ -34,6 +36,12 @@ export async function seedCompanies() {
       ]
     );
   }
+
+  if (activeSlugs.length > 0) {
+    const placeholders = activeSlugs.map(() => "?").join(", ");
+    db.run(`DELETE FROM companies WHERE slug NOT IN (${placeholders})`, activeSlugs);
+  }
+
   console.log(`Seeded ${jsonFiles.length} companies`);
 }
 
@@ -47,6 +55,8 @@ export async function seedTools() {
   }
 
   const jsonFiles = files.filter((f) => f.endsWith(".json"));
+  const activeSlugs = jsonFiles.map((f) => f.replace(/\.json$/, ""));
+
   for (const file of jsonFiles) {
     const t = JSON.parse(await readFile(join(TOOLS_DIR, file), "utf-8"));
     db.run(
@@ -60,5 +70,11 @@ export async function seedTools() {
        JSON.stringify(t.tags ?? []), t.stars ?? null]
     );
   }
+
+  if (activeSlugs.length > 0) {
+    const placeholders = activeSlugs.map(() => "?").join(", ");
+    db.run(`DELETE FROM tools WHERE slug NOT IN (${placeholders})`, activeSlugs);
+  }
+
   console.log(`Seeded ${jsonFiles.length} tools`);
 }
