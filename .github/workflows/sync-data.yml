@@ -67,7 +67,7 @@ jobs:
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
-          ssh $SSH_OPTS ${GCP_USER}@localhost "pm2 reload w3os-backend --update-env"
+          ssh $SSH_OPTS ${GCP_USER}@localhost "export PATH=\"/home/${GCP_USER}/.bun/bin:/usr/local/bin:\$PATH\" && pm2 reload w3os-backend --update-env"
 
       - name: Health check
         env:
