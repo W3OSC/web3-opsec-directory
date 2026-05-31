@@ -4,7 +4,7 @@
   "description": "Open-source Web3 security platform providing real-time DNS hijack monitoring, OpSec checklists, supply chain integrity scanning, and threat intelligence feeds for Web3 projects and individuals.",
   "website": "https://digibastion.com",
   "logo": "/logos/digibastion.png",
-  "services": ["dns-security", "opsec", "supply-chain", "threat-intelligence"],
+  "services": ["opsec", "infrastructure", "threat-intelligence", "web2-security"],
   "tags": ["opsec", "web3", "dns", "supply-chain", "threat-intelligence", "phishing"],
   "endorsed": false,
   "github": "https://github.com/Raiders0786/digibastion",
