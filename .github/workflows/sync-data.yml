@@ -1,6 +1,7 @@
 name: Sync company data to production
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
