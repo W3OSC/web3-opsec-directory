@@ -3,7 +3,7 @@
   "name": "Boring Security",
   "description": "Nonprofit Web3 security education DAO offering free courses, workshops, and resources on wallet security, phishing defense, and operational security for the broader crypto community.",
   "website": "https://boringsecurity.com",
-  "logo": "/logos/boring-security.png",
+  "logo": "/logos/boring-security.jpg",
   "services": ["security-training", "opsec"],
   "tags": ["opsec", "web3", "education", "training", "phishing"],
   "endorsed": false,
