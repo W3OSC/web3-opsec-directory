@@ -59,9 +59,9 @@ jobs:
         env:
           SSH_OPTS: "-i /tmp/deploy_key -p 2222 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
         run: |
-          rsync -Pazv -e "ssh $SSH_OPTS" \
+          rsync -Pazv --delete -e "ssh $SSH_OPTS" \
             data/companies/ ${GCP_USER}@localhost:/var/www/w3os/data/companies/
-          rsync -Pazv -e "ssh $SSH_OPTS" \
+          rsync -Pazv --delete -e "ssh $SSH_OPTS" \
             data/tools/ ${GCP_USER}@localhost:/var/www/w3os/data/tools/
 
       - name: Reload backend (re-seeds DB from new JSON)
