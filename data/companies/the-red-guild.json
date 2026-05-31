@@ -1,0 +1,26 @@
+{
+  "slug": "the-red-guild",
+  "name": "The Red Guild",
+  "description": "Web3 security collective providing open-source hardened dev containers, phishing defense research, supply chain security tooling, DevSecOps resources, and smart contract security training. Active contributor to SEAL security frameworks.",
+  "website": "https://theredguild.org",
+  "logo": "/logos/the-red-guild.png",
+  "services": ["opsec", "security-training", "devsecops", "phishing-defense", "smart-contract-auditing"],
+  "tags": ["opsec", "web3", "education", "devsecops", "phishing", "supply-chain"],
+  "endorsed": false,
+  "github": "https://github.com/theredguild",
+  "twitter": "https://x.com/theredguild",
+  "open_source_repos": [
+    {
+      "name": "devcontainer",
+      "url": "https://github.com/theredguild/devcontainer",
+      "description": "Hardened, web3-focused dev containers with variants for security auditing and air-gapped malware analysis.",
+      "tool_slug": "red-guild-devcontainer"
+    },
+    {
+      "name": "devcontainer-wizard",
+      "url": "https://github.com/theredguild/devcontainer-wizard",
+      "description": "CLI to quickly set up a fully equipped, security-hardened web3 dev container.",
+      "tool_slug": "red-guild-devcontainer-wizard"
+    }
+  ]
+}

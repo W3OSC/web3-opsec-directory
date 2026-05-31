@@ -1,0 +1,9 @@
+{
+  "slug": "seal-frameworks",
+  "name": "SEAL Frameworks",
+  "description": "Official curated collection of modular, battle-tested security best practices for Web3 organizations - covering opsec, wallet management, incident response, and DPRK threat mitigation.",
+  "repo_url": "https://github.com/security-alliance/frameworks",
+  "maintainer_slug": "seal",
+  "tags": ["frameworks", "opsec", "incident-response", "web3", "open-source"],
+  "stars": 86
+}

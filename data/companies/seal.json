@@ -1,0 +1,32 @@
+{
+  "slug": "seal",
+  "name": "Security Alliance (SEAL)",
+  "description": "Nonprofit Web3 security organization providing 24/7 emergency incident response (SEAL 911), open-source security frameworks, threat intelligence blocklists, whitehat legal protection (Safe Harbor), and security certifications for crypto-native teams.",
+  "website": "https://securityalliance.org",
+  "logo": "/logos/seal.png",
+  "services": ["incident-response", "threat-intelligence", "frameworks", "certifications", "safe-harbor"],
+  "tags": ["opsec", "web3", "incident-response", "threat-intelligence", "seal"],
+  "endorsed": false,
+  "github": "https://github.com/security-alliance",
+  "twitter": "https://x.com/SEAL_911",
+  "open_source_repos": [
+    {
+      "name": "SEAL Frameworks",
+      "url": "https://github.com/security-alliance/frameworks",
+      "description": "Curated, battle-tested security best practices and modular standards for Web3 organizations.",
+      "tool_slug": "seal-frameworks"
+    },
+    {
+      "name": "SEAL Blocklists",
+      "url": "https://github.com/security-alliance/blocklists",
+      "description": "Read-only mirror of threat intelligence blocklists maintained by SEAL.",
+      "tool_slug": "seal-blocklists"
+    },
+    {
+      "name": "SEAL Safe Harbor",
+      "url": "https://github.com/security-alliance/safe-harbor",
+      "description": "On-chain legal framework pre-authorizing whitehats to rescue funds under active attack.",
+      "tool_slug": "seal-safe-harbor"
+    }
+  ]
+}

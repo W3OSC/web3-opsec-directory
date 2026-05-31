@@ -1,0 +1,9 @@
+{
+  "slug": "digibastion",
+  "name": "DigiBastion",
+  "description": "Web3 security checklist and platform covering phishing defense, DNS security, operational security hygiene, and supply chain integrity for protocols and individuals.",
+  "repo_url": "https://github.com/Raiders0786/digibastion",
+  "maintainer_slug": "digibastion",
+  "tags": ["opsec", "dns", "phishing", "supply-chain", "checklist", "web3", "open-source"],
+  "stars": 22
+}

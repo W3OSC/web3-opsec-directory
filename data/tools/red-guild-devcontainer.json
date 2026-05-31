@@ -1,0 +1,9 @@
+{
+  "slug": "red-guild-devcontainer",
+  "name": "Red Guild DevContainer",
+  "description": "Hardened web3 and security-focused dev containers with variants: minimal Solidity dev, security-hardened, full auditor, and air-gapped malware analysis environments.",
+  "repo_url": "https://github.com/theredguild/devcontainer",
+  "maintainer_slug": "the-red-guild",
+  "tags": ["devsecops", "containers", "auditing", "web3", "open-source"],
+  "stars": 112
+}
