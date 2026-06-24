@@ -12,7 +12,11 @@
   "tags": [
     "opsec",
     "web3",
-    "seal-certified"
+    "seal-certified",
+    "soc2",
+    "web2",
+    "cloud-security",
+    "open-source"
   ],
   "endorsed": true,
   "github": "https://github.com/w3osc",
