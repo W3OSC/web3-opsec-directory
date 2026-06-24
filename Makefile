@@ -18,7 +18,7 @@ dev:
 
 build:
 	@echo "Building frontend..."
-	@cd frontend && npm run build
+	@cd frontend && env $$(cat ../secrets/.env.frontend.prod | grep -v '^#' | xargs) npm run build
 	@echo "Build complete - standalone output at frontend/.next/standalone"
 
 # ─── Deploy ──────────────────────────────────────────────────────────────────
