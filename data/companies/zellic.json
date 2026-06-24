@@ -3,7 +3,7 @@
   "name": "Zellic",
   "description": "Security research firm providing rigorous smart contract audits, cryptography reviews, and vulnerability research for Web3 protocols, with a track record across major DeFi and Layer 1 ecosystems.",
   "website": "https://zellic.io",
-  "logo": "/logos/zellic.svg",
+  "logo": "/logos/zellic.png",
   "services": [
     "web2-security",
     "devsecops"
