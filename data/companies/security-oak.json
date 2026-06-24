@@ -1,0 +1,31 @@
+{
+  "slug": "security-oak",
+  "name": "Oak Security",
+  "description": "Web3 cybersecurity firm offering smart contract audits, penetration testing, vCISO services, and operational security reviews using a signature blinded multi-auditor approach and the TRACE threat modelling framework.",
+  "website": "https://oaksecurity.io",
+  "logo": "/logos/security-oak.png",
+  "services": [
+    "web2-security",
+    "devsecops",
+    "opsec",
+    "red-team",
+    "security-training"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "pentesting",
+    "vciso",
+    "cosmos",
+    "solana",
+    "ethereum"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/oak-security",
+  "twitter": "https://x.com/SecurityOak",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "slug": "trail-of-bits",
+  "name": "Trail of Bits",
+  "description": "Elite security research and engineering firm offering red team engagements, smart contract audits, cryptography reviews, and open-source security tooling across Web2 and Web3.",
+  "website": "https://www.trailofbits.com",
+  "logo": "/logos/trail-of-bits.png",
+  "services": [
+    "red-team",
+    "web2-security",
+    "devsecops",
+    "blockchain-forensics"
+  ],
+  "tags": [
+    "web3",
+    "web2",
+    "smart-contracts",
+    "auditing",
+    "red-team",
+    "cryptography",
+    "open-source"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/trailofbits",
+  "twitter": "https://x.com/trailofbits",
+  "open_source_repos": [
+    {
+      "name": "Slither",
+      "url": "https://github.com/crytic/slither",
+      "description": "Static analysis framework for Solidity and Vyper smart contracts.",
+      "tool_slug": "slither"
+    },
+    {
+      "name": "Echidna",
+      "url": "https://github.com/crytic/echidna",
+      "description": "Property-based fuzzer for Ethereum smart contracts.",
+      "tool_slug": "echidna"
+    }
+  ],
+  "badges": [
+    "seal-partner"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "blocksec",
+  "name": "BlockSec",
+  "description": "Blockchain security company offering smart contract audits, on-chain threat monitoring, and real-time attack interception through its Phalcon platform.",
+  "website": "https://blocksec.com",
+  "logo": "/logos/blocksec.jpg",
+  "services": [
+    "threat-intelligence",
+    "incident-response",
+    "blockchain-forensics"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "monitoring",
+    "incident-response",
+    "blockchain-forensics"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/blocksecteam",
+  "twitter": "https://x.com/BlockSecTeam",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

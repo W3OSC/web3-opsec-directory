@@ -1,0 +1,23 @@
+{
+  "slug": "defi-safety",
+  "name": "DeFiSafety",
+  "description": "Independent DeFi risk assessment organization that scores protocols on process quality, code transparency, and security practices to help users evaluate protocol safety.",
+  "website": "https://defisafety.com",
+  "logo": "/logos/defi-safety.svg",
+  "services": [
+    "threat-intelligence"
+  ],
+  "tags": [
+    "web3",
+    "defi",
+    "risk-assessment",
+    "transparency"
+  ],
+  "endorsed": false,
+  "github": null,
+  "twitter": "https://x.com/DefiSafety",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

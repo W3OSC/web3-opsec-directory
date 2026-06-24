@@ -4,8 +4,22 @@
   "description": "Operational security firm trusted by 100+ founders and UHNWIs. Specializes in threat modeling, opsec audits, OSINT research, multisig security, physical security training, and security-as-a-service for web3 organizations.",
   "website": "https://www.opsek.io",
   "logo": "/logos/opsek.png",
-  "services": ["opsec", "threat-intelligence", "osint", "security-training", "key-management", "physical-security"],
-  "tags": ["opsec", "web3", "multisig", "osint", "training", "physical-security"],
+  "services": [
+    "opsec",
+    "threat-intelligence",
+    "osint",
+    "security-training",
+    "key-management",
+    "physical-security"
+  ],
+  "tags": [
+    "opsec",
+    "web3",
+    "multisig",
+    "osint",
+    "training",
+    "physical-security"
+  ],
   "endorsed": false,
   "github": "https://github.com/Opsek",
   "twitter": null,
@@ -16,5 +30,8 @@
       "description": "Factory reset & harden your configuration: Linux, macOS, & Windows.",
       "tool_slug": "oss-security"
     }
+  ],
+  "badges": [
+    "seal-partner"
   ]
 }

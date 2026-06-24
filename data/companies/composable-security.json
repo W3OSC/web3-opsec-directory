@@ -1,0 +1,24 @@
+{
+  "slug": "composable-security",
+  "name": "Composable Security",
+  "description": "Smart contract security auditing firm focused on DeFi protocols, offering in-depth manual code review and vulnerability research for Web3 projects.",
+  "website": "https://composable.security",
+  "logo": "/logos/composable-security.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "defi"
+  ],
+  "endorsed": false,
+  "github": null,
+  "twitter": "https://x.com/Composable_Sec",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

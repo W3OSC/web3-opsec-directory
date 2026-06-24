@@ -4,8 +4,21 @@
   "description": "Web3 operational security firm specializing in adversarial threat modeling, incident response planning, tabletop exercises, multisig security audits, and live drills for DeFi protocols, L1/L2 chains, and institutions. Founding member and initiative lead of SEAL.",
   "website": "https://shield3.com",
   "logo": "/logos/shield3.png",
-  "services": ["opsec", "threat-intelligence", "incident-response", "security-training", "key-management"],
-  "tags": ["opsec", "web3", "threat-modeling", "incident-response", "multisig", "seal"],
+  "services": [
+    "opsec",
+    "threat-intelligence",
+    "incident-response",
+    "security-training",
+    "key-management"
+  ],
+  "tags": [
+    "opsec",
+    "web3",
+    "threat-modeling",
+    "incident-response",
+    "multisig",
+    "seal"
+  ],
   "endorsed": false,
   "github": "https://github.com/0xShield3",
   "twitter": "https://x.com/Shield3Sec",
@@ -16,5 +29,8 @@
       "description": "Independently verify Safe multisig transaction hashes before signing, with security analysis for delegate calls and owner modifications.",
       "tool_slug": "sky-safe-tx-decoder"
     }
+  ],
+  "badges": [
+    "seal-partner"
   ]
 }

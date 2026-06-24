@@ -1,0 +1,26 @@
+{
+  "slug": "hacken",
+  "name": "Hacken",
+  "description": "Web3 cybersecurity company providing smart contract audits, penetration testing, bug bounty management, and dApp security assessments for blockchain projects worldwide.",
+  "website": "https://hacken.io",
+  "logo": "/logos/hacken.jpg",
+  "services": [
+    "web2-security",
+    "devsecops",
+    "red-team"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "pentesting",
+    "bug-bounty"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/hknio",
+  "twitter": "https://x.com/hackenclub",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

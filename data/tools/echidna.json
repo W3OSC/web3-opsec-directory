@@ -1,0 +1,9 @@
+{
+  "slug": "echidna",
+  "name": "Echidna",
+  "description": "Property-based fuzzer for Ethereum smart contracts. Uses grammar-based fuzzing to detect security vulnerabilities by testing user-defined invariants and assertions.",
+  "repo_url": "https://github.com/crytic/echidna",
+  "maintainer_slug": "trail-of-bits",
+  "tags": ["smart-contracts", "fuzzing", "solidity", "testing", "open-source", "web3"],
+  "stars": null
+}

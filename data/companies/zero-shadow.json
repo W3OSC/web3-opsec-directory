@@ -1,0 +1,26 @@
+{
+  "slug": "zero-shadow",
+  "name": "Zero Shadow",
+  "description": "Web3 security firm specializing in operational security, threat intelligence, and on-chain investigation services for blockchain projects and individuals.",
+  "website": "https://zeroshadow.io",
+  "logo": "/logos/zero-shadow.png",
+  "services": [
+    "opsec",
+    "threat-intelligence",
+    "blockchain-forensics"
+  ],
+  "tags": [
+    "web3",
+    "opsec",
+    "threat-intelligence",
+    "blockchain-forensics",
+    "investigation"
+  ],
+  "endorsed": false,
+  "github": null,
+  "twitter": "https://x.com/zeroshadow_io",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

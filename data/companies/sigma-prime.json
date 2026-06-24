@@ -1,0 +1,34 @@
+{
+  "slug": "sigma-prime",
+  "name": "Sigma Prime",
+  "description": "Ethereum security and research firm, creators of the Lighthouse consensus client, offering smart contract audits, client security research, and blockchain infrastructure consulting.",
+  "website": "https://sigmaprime.io",
+  "logo": "/logos/sigma-prime.png",
+  "services": [
+    "web2-security",
+    "devsecops",
+    "infrastructure"
+  ],
+  "tags": [
+    "web3",
+    "ethereum",
+    "smart-contracts",
+    "auditing",
+    "consensus-client",
+    "infrastructure"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/sigp",
+  "twitter": "https://x.com/sigp_io",
+  "open_source_repos": [
+    {
+      "name": "Lighthouse",
+      "url": "https://github.com/sigp/lighthouse",
+      "description": "Production-grade Ethereum consensus client written in Rust.",
+      "tool_slug": "lighthouse"
+    }
+  ],
+  "badges": [
+    "seal-partner"
+  ]
+}

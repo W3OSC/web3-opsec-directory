@@ -1,0 +1,24 @@
+{
+  "slug": "chain-security",
+  "name": "ChainSecurity",
+  "description": "Smart contract security auditing firm, now part of PwC Switzerland, specializing in formal verification and deep security analysis of blockchain protocols.",
+  "website": "https://chainsecurity.com",
+  "logo": "/logos/chain-security.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "formal-verification"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/ChainSecurity",
+  "twitter": "https://x.com/chain_security",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

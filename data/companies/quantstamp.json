@@ -1,0 +1,25 @@
+{
+  "slug": "quantstamp",
+  "name": "Quantstamp",
+  "description": "Blockchain security company offering smart contract audits, economic security analysis, and automated scanning for DeFi protocols and Layer 1/2 networks.",
+  "website": "https://quantstamp.com",
+  "logo": "/logos/quantstamp.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "defi",
+    "layer2"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/quantstamp",
+  "twitter": "https://x.com/Quantstamp",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

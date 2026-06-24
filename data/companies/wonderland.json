@@ -1,0 +1,24 @@
+{
+  "slug": "wonderland",
+  "name": "Wonderland",
+  "description": "DeFi security and development collective offering smart contract audits, protocol security reviews, and developer-focused security services for decentralized applications.",
+  "website": "https://wonderland.xyz",
+  "logo": "/logos/wonderland.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "defi",
+    "smart-contracts",
+    "auditing"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/defi-wonderland",
+  "twitter": "https://x.com/Wonderland",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

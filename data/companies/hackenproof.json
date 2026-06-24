@@ -1,0 +1,24 @@
+{
+  "slug": "hackenproof",
+  "name": "HackenProof",
+  "description": "Web3-native bug bounty and vulnerability disclosure platform connecting blockchain projects with a global community of security researchers.",
+  "website": "https://hackenproof.com",
+  "logo": "/logos/hackenproof.jpg",
+  "services": [
+    "web2-security",
+    "threat-intelligence"
+  ],
+  "tags": [
+    "web3",
+    "bug-bounty",
+    "vulnerability-disclosure",
+    "security-research"
+  ],
+  "endorsed": false,
+  "github": null,
+  "twitter": "https://x.com/HackenProof",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

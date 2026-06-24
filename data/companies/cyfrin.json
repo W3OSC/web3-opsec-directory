@@ -1,0 +1,33 @@
+{
+  "slug": "cyfrin",
+  "name": "Cyfrin",
+  "description": "Smart contract security firm and educator offering professional audits, the Updraft free learning platform, and open-source security tooling for Web3 developers.",
+  "website": "https://cyfrin.io",
+  "logo": "/logos/cyfrin.jpg",
+  "services": [
+    "web2-security",
+    "security-training",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "education",
+    "training"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/Cyfrin",
+  "twitter": "https://x.com/cyfrin",
+  "open_source_repos": [
+    {
+      "name": "Aderyn",
+      "url": "https://github.com/Cyfrin/aderyn",
+      "description": "Rust-based static analysis tool for Solidity smart contracts.",
+      "tool_slug": "aderyn"
+    }
+  ],
+  "badges": [
+    "seal-partner"
+  ]
+}

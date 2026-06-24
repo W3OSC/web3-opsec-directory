@@ -119,6 +119,16 @@
           }
         }
       }
+    },
+    "badges": {
+      "type": "array",
+      "description": "Recognition badges from external organizations (e.g. seal-partner).",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["seal-partner"],
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      }
     }
   }
 }

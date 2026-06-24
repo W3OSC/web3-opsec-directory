@@ -1,0 +1,1 @@
+ALTER TABLE companies ADD COLUMN badges TEXT NOT NULL DEFAULT '[]';

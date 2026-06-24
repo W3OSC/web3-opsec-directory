@@ -1,0 +1,9 @@
+{
+  "slug": "mythril",
+  "name": "Mythril",
+  "description": "Security analysis tool for EVM bytecode using symbolic execution, SMT solving, and taint analysis to detect vulnerabilities in Ethereum smart contracts.",
+  "repo_url": "https://github.com/ConsenSys/mythril",
+  "maintainer_slug": "consensys-diligence",
+  "tags": ["smart-contracts", "symbolic-execution", "solidity", "evm", "open-source", "web3"],
+  "stars": null
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "statemind",
+  "name": "Statemind",
+  "description": "Smart contract security auditing firm specializing in formal verification, Solidity security research, and in-depth manual audits for DeFi and infrastructure protocols.",
+  "website": "https://statemind.io",
+  "logo": "/logos/statemind.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "formal-verification",
+    "defi"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/statemindio",
+  "twitter": "https://x.com/statemindio",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

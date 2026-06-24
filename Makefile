@@ -19,7 +19,7 @@ dev:
 build:
 	@echo "Building frontend..."
 	@cd frontend && npm run build
-	@echo "Build complete — standalone output at frontend/.next/standalone"
+	@echo "Build complete - standalone output at frontend/.next/standalone"
 
 # ─── Deploy ──────────────────────────────────────────────────────────────────
 
@@ -54,9 +54,9 @@ deploy-prod: security-check build
 	rsync -Pzv -e 'ssh' secrets/.env.backend.prod $(GCP_HOST):$(PROD_PATH)/secrets/; \
 	rsync -Pzv -e 'ssh' secrets/.env.frontend.prod $(GCP_HOST):$(PROD_PATH)/secrets/; \
 	echo "Installing backend deps on server..."; \
-	ssh $(GCP_HOST) 'cd $(PROD_PATH)/backend && bun install --production'; \
+	ssh $(GCP_HOST) 'export PATH="$$PATH:/home/auditware/.bun/bin" && cd $(PROD_PATH)/backend && bun install --production'; \
 	echo "Restarting services..."; \
-	ssh $(GCP_HOST) 'cd $(PROD_PATH) && \
+	ssh $(GCP_HOST) 'export PATH="$$PATH:/home/auditware/.bun/bin" && cd $(PROD_PATH) && \
 		pm2 reload ecosystem.prod.config.js --update-env || \
 		pm2 start ecosystem.prod.config.js'; \
 	sleep 4; \
@@ -66,7 +66,7 @@ deploy-prod: security-check build
 		echo "✓ Backend healthy"; \
 	else \
 		echo "✗ Backend health check failed"; \
-		ssh $(GCP_HOST) 'pm2 --nostream logs w3os-backend --lines 30 --err'; \
+		ssh $(GCP_HOST) 'export PATH="$$PATH:/home/auditware/.bun/bin" && pm2 --nostream logs w3os-backend --lines 30 --err'; \
 		exit 1; \
 	fi; \
 	echo "Deploying nginx..."; \

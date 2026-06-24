@@ -1,0 +1,33 @@
+{
+  "slug": "openzeppelin",
+  "name": "OpenZeppelin",
+  "description": "Leading Web3 security organization providing battle-tested smart contract libraries, professional security audits, and security automation tools used by thousands of projects globally.",
+  "website": "https://openzeppelin.com",
+  "logo": "/logos/openzeppelin.png",
+  "services": [
+    "web2-security",
+    "devsecops",
+    "infrastructure"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "open-source",
+    "libraries"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/OpenZeppelin",
+  "twitter": "https://x.com/OpenZeppelin",
+  "open_source_repos": [
+    {
+      "name": "OpenZeppelin Contracts",
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+      "description": "Battle-tested library of secure, reusable smart contracts for Ethereum.",
+      "tool_slug": "openzeppelin-contracts"
+    }
+  ],
+  "badges": [
+    "seal-partner"
+  ]
+}

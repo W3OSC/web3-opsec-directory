@@ -1,0 +1,25 @@
+{
+  "slug": "zellic",
+  "name": "Zellic",
+  "description": "Security research firm providing rigorous smart contract audits, cryptography reviews, and vulnerability research for Web3 protocols, with a track record across major DeFi and Layer 1 ecosystems.",
+  "website": "https://zellic.io",
+  "logo": "/logos/zellic.jpg",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "cryptography",
+    "defi"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/zellic-io",
+  "twitter": "https://x.com/zellic_io",
+  "open_source_repos": [],
+  "badges": [
+    "seal-partner"
+  ]
+}

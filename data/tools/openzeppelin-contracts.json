@@ -1,0 +1,9 @@
+{
+  "slug": "openzeppelin-contracts",
+  "name": "OpenZeppelin Contracts",
+  "description": "Battle-tested library of secure, reusable smart contracts for Ethereum. Implements ERC standards and common patterns (access control, upgrades, governance) audited by the community.",
+  "repo_url": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+  "maintainer_slug": "openzeppelin",
+  "tags": ["smart-contracts", "solidity", "library", "open-source", "web3", "standards"],
+  "stars": null
+}

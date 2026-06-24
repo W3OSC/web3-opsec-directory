@@ -1,0 +1,9 @@
+{
+  "slug": "slither",
+  "name": "Slither",
+  "description": "Static analysis framework for Solidity and Vyper smart contracts. Detects vulnerabilities, provides code understanding, and automates custom analyses via a Python API.",
+  "repo_url": "https://github.com/crytic/slither",
+  "maintainer_slug": "trail-of-bits",
+  "tags": ["smart-contracts", "static-analysis", "solidity", "vyper", "open-source", "web3"],
+  "stars": null
+}

@@ -7,6 +7,7 @@ export interface Company {
   logo?: string;
   services: string;   // JSON array stored as text
   tags: string;       // JSON array stored as text
+  badges: string;     // JSON array stored as text
   endorsed: number;   // SQLite boolean (0/1)
   github?: string;
   twitter?: string;

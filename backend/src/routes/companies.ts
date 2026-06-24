@@ -19,6 +19,7 @@ type CompanyJson = {
   logo?: string;
   services: string[];
   tags: string[];
+  badges?: string[];
   endorsed?: boolean;
   github?: string | null;
   twitter?: string | null;
@@ -40,17 +41,19 @@ function normalizeJson(c: CompanyJson) {
     endorsed: c.endorsed ?? false,
     github: c.github ?? null,
     twitter: c.twitter ?? null,
+    badges: c.badges ?? [],
     openSourceRepos: c.open_source_repos ?? [],
     open_source_repos: undefined,
   };
 }
 
 function serializeRow(row: Company) {
-  const { open_source_repos, services, tags, endorsed, ...rest } = row;
+  const { open_source_repos, services, tags, badges, endorsed, ...rest } = row;
   return {
     ...rest,
     services: JSON.parse(services ?? "[]"),
     tags: JSON.parse(tags ?? "[]"),
+    badges: JSON.parse(badges ?? "[]"),
     openSourceRepos: JSON.parse(open_source_repos ?? "[]"),
     endorsed: endorsed === 1,
   };

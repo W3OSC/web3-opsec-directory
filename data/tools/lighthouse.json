@@ -1,0 +1,9 @@
+{
+  "slug": "lighthouse",
+  "name": "Lighthouse",
+  "description": "Production-grade Ethereum consensus client written in Rust. Focused on security, performance, and stability for validators and node operators running Ethereum proof-of-stake.",
+  "repo_url": "https://github.com/sigp/lighthouse",
+  "maintainer_slug": "sigma-prime",
+  "tags": ["ethereum", "consensus-client", "infrastructure", "validator", "open-source", "web3"],
+  "stars": null
+}

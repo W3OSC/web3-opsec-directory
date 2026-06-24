@@ -1,0 +1,32 @@
+{
+  "slug": "consensys-diligence",
+  "name": "Consensys Diligence",
+  "description": "Smart contract security auditing division of Consensys, providing thorough code reviews, automated analysis tooling (MythX), and security advisory for Ethereum-based projects.",
+  "website": "https://consensys.io/diligence",
+  "logo": "/logos/consensys-diligence.png",
+  "services": [
+    "web2-security",
+    "devsecops"
+  ],
+  "tags": [
+    "web3",
+    "smart-contracts",
+    "auditing",
+    "ethereum",
+    "consensys"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/ConsenSys",
+  "twitter": "https://x.com/ConsensysAudits",
+  "open_source_repos": [
+    {
+      "name": "Mythril",
+      "url": "https://github.com/ConsenSys/mythril",
+      "description": "Security analysis tool for EVM bytecode using symbolic execution.",
+      "tool_slug": "mythril"
+    }
+  ],
+  "badges": [
+    "seal-partner"
+  ]
+}
