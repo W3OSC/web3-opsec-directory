@@ -7,6 +7,7 @@ import { join } from "path";
 const companies = new Hono();
 const IS_DEV = process.env.NODE_ENV !== "production";
 const DATA_DIR = join(import.meta.dir, "../../../data/companies");
+const TOOLS_DIR = join(import.meta.dir, "../../../data/tools");
 
 // In dev: read JSON files directly so edits are live without restart.
 // In prod: read from DB (seeded from git on deploy).
@@ -32,6 +33,46 @@ async function fromFiles(): Promise<CompanyJson[]> {
     files.map((f) => readFile(join(DATA_DIR, f), "utf-8").then(JSON.parse))
   );
   return results;
+}
+
+// Build a map of maintainer_slug -> total stars from tool JSON files (dev) or DB (prod).
+async function buildStarsMap(): Promise<Record<string, number>> {
+  const map: Record<string, number> = {};
+  if (IS_DEV) {
+    const files = (await readdir(TOOLS_DIR)).filter((f) => f.endsWith(".json"));
+    for (const f of files) {
+      const t = JSON.parse(await readFile(join(TOOLS_DIR, f), "utf-8"));
+      if (t.maintainer_slug && typeof t.stars === "number") {
+        map[t.maintainer_slug] = (map[t.maintainer_slug] ?? 0) + t.stars;
+      }
+    }
+  } else {
+    const rows = db.query("SELECT maintainer_slug, stars FROM tools WHERE stars IS NOT NULL").all() as { maintainer_slug: string; stars: number }[];
+    for (const r of rows) {
+      map[r.maintainer_slug] = (map[r.maintainer_slug] ?? 0) + r.stars;
+    }
+  }
+  return map;
+}
+
+// Sort priority: endorsed > seal-partner > rest; within each tier, by combined tool stars desc.
+function sortCompanies<T extends { slug: string; endorsed: boolean | number; badges: string[] | string }>(
+  list: T[],
+  starsMap: Record<string, number>
+): T[] {
+  return [...list].sort((a, b) => {
+    const aEndorsed = a.endorsed === true || a.endorsed === 1 ? 1 : 0;
+    const bEndorsed = b.endorsed === true || b.endorsed === 1 ? 1 : 0;
+    if (aEndorsed !== bEndorsed) return bEndorsed - aEndorsed;
+
+    const aBadges = Array.isArray(a.badges) ? a.badges : JSON.parse((a.badges as string) ?? "[]");
+    const bBadges = Array.isArray(b.badges) ? b.badges : JSON.parse((b.badges as string) ?? "[]");
+    const aSeal = aBadges.includes("seal-partner") ? 1 : 0;
+    const bSeal = bBadges.includes("seal-partner") ? 1 : 0;
+    if (aSeal !== bSeal) return bSeal - aSeal;
+
+    return (starsMap[b.slug] ?? 0) - (starsMap[a.slug] ?? 0);
+  });
 }
 
 function normalizeJson(c: CompanyJson) {
@@ -63,6 +104,7 @@ companies.get("/", async (c) => {
   const search = (c.req.query("search") ?? "").toLowerCase();
   const tagsParam = c.req.query("tags") ?? "";
   const filterTags = tagsParam ? tagsParam.split(",") : [];
+  const starsMap = await buildStarsMap();
 
   if (IS_DEV) {
     let all = await fromFiles();
@@ -78,7 +120,8 @@ companies.get("/", async (c) => {
         filterTags.every((t) => co.tags.includes(t))
       );
     }
-    return c.json(all.map(normalizeJson));
+    const normalized = all.map(normalizeJson);
+    return c.json(sortCompanies(normalized, starsMap));
   }
 
   let query = "SELECT * FROM companies WHERE approved = 1";
@@ -93,7 +136,8 @@ companies.get("/", async (c) => {
         filterTags.every((tag) => JSON.parse(r.tags ?? "[]").includes(tag))
       )
     : rows;
-  return c.json(filtered.map(serializeRow));
+  const serialized = filtered.map(serializeRow);
+  return c.json(sortCompanies(serialized, starsMap));
 });
 
 companies.get("/:slug", async (c) => {

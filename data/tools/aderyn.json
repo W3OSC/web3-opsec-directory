@@ -4,6 +4,13 @@
   "description": "Rust-based static analysis tool for Solidity smart contracts. Produces markdown and JSON vulnerability reports, designed for CI/CD integration and developer workflows.",
   "repo_url": "https://github.com/Cyfrin/aderyn",
   "maintainer_slug": "cyfrin",
-  "tags": ["smart-contracts", "static-analysis", "solidity", "open-source", "web3", "devsecops"],
-  "stars": null
+  "tags": [
+    "smart-contracts",
+    "static-analysis",
+    "solidity",
+    "open-source",
+    "web3",
+    "devsecops"
+  ],
+  "stars": 781
 }

@@ -4,7 +4,12 @@
   "description": "Open-source curated directory of web3 security firms and opsec tools. The site you are currently viewing.",
   "repo_url": "https://github.com/w3osc/web3-opsec-directory",
   "maintainer_slug": "auditware",
-  "tags": ["directory", "opsec", "web3", "open-source"],
-  "stars": null,
+  "tags": [
+    "directory",
+    "opsec",
+    "web3",
+    "open-source"
+  ],
+  "stars": 0,
   "pinned": true
 }
