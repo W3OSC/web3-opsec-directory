@@ -13,7 +13,8 @@
     "smart-contracts",
     "auditing",
     "defi",
-    "layer2"
+    "layer2",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/quantstamp",

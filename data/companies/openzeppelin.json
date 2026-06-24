@@ -14,7 +14,8 @@
     "smart-contracts",
     "auditing",
     "open-source",
-    "libraries"
+    "libraries",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/OpenZeppelin",

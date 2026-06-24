@@ -15,7 +15,8 @@
     "smart-contracts",
     "auditing",
     "consensus-client",
-    "infrastructure"
+    "infrastructure",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/sigp",

@@ -18,9 +18,10 @@
     "multisig",
     "osint",
     "training",
-    "physical-security"
+    "physical-security",
+    "seal-certified"
   ],
-  "endorsed": false,
+  "endorsed": true,
   "github": "https://github.com/Opsek",
   "twitter": null,
   "open_source_repos": [

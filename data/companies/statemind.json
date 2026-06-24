@@ -13,7 +13,8 @@
     "smart-contracts",
     "auditing",
     "formal-verification",
-    "defi"
+    "defi",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/statemindio",

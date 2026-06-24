@@ -15,7 +15,8 @@
     "auditing",
     "monitoring",
     "incident-response",
-    "blockchain-forensics"
+    "blockchain-forensics",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/blocksecteam",

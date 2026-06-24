@@ -17,7 +17,8 @@
     "threat-modeling",
     "incident-response",
     "multisig",
-    "seal"
+    "seal",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/0xShield3",

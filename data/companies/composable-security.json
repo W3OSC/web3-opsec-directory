@@ -12,7 +12,8 @@
     "web3",
     "smart-contracts",
     "auditing",
-    "defi"
+    "defi",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": null,

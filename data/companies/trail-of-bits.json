@@ -17,7 +17,8 @@
     "auditing",
     "red-team",
     "cryptography",
-    "open-source"
+    "open-source",
+    "seal-certified"
   ],
   "endorsed": false,
   "github": "https://github.com/trailofbits",
