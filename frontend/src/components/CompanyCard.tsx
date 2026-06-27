@@ -51,7 +51,7 @@ export default function CompanyCard({ company }: { company: Company }) {
 
   return (
     <div className="card flex flex-col gap-3">
-      {/* Header row: logo + name/url + social icons */}
+      {/* Header row: logo + name/url + standards */}
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
           {company.logo ? (
@@ -87,7 +87,34 @@ export default function CompanyCard({ company }: { company: Company }) {
           </div>
         </div>
 
-        <div className="flex gap-2 flex-shrink-0">
+        {/* Standards in top-right */}
+        {orderedStandards.length > 0 && (
+          <div className="flex flex-col gap-1.5 flex-shrink-0 items-end">
+            {orderedStandards.map((std) => (
+              <StandardBadge key={std} standard={std} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Body: description (left) + tags (right) */}
+      <div className="flex gap-4 flex-1">
+        <p className="flex-1 text-sm text-gray-400 line-clamp-4 leading-relaxed">
+          {company.description}
+        </p>
+
+        {company.tags.length > 0 && (
+          <div className="flex flex-col gap-1.5 flex-shrink-0 items-end min-w-[68px]">
+            {company.tags.map((tag) => (
+              <TagBadge key={tag} tag={tag} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Footer: social icons (left) + view profile button (right) */}
+      <div className="pt-2 border-t border-surface-border flex items-center justify-between">
+        <div className="flex gap-3">
           {company.github && (
             <a
               href={company.github}
@@ -120,33 +147,6 @@ export default function CompanyCard({ company }: { company: Company }) {
             <Globe size={15} />
           </a>
         </div>
-      </div>
-
-      {/* Body: description (left) + right column (standards + tags) */}
-      <div className="flex gap-4 flex-1">
-        {/* Description */}
-        <p className="flex-1 text-sm text-gray-400 line-clamp-4 leading-relaxed">
-          {company.description}
-        </p>
-
-        {/* Right column: standards then tags stacked vertically */}
-        <div className="flex flex-col gap-1.5 flex-shrink-0 items-end min-w-[68px]">
-          {orderedStandards.map((std) => (
-            <StandardBadge key={std} standard={std} />
-          ))}
-
-          {orderedStandards.length > 0 && company.tags.length > 0 && (
-            <div className="w-full border-t border-surface-border my-0.5" />
-          )}
-
-          {company.tags.map((tag) => (
-            <TagBadge key={tag} tag={tag} />
-          ))}
-        </div>
-      </div>
-
-      {/* Footer: view profile button */}
-      <div className="pt-2 border-t border-surface-border flex justify-end">
         <Link
           href={`/company/${company.slug}`}
           className="flex items-center gap-1 text-xs text-gray-500 hover:text-brand transition-colors group"
