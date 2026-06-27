@@ -12,8 +12,7 @@
     "smart-contracts",
     "auditing",
     "cryptography",
-    "defi",
-    "seal-certified"
+    "defi"
   ],
   "endorsed": false,
   "github": "https://github.com/zellic-io",

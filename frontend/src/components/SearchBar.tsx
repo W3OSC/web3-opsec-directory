@@ -6,7 +6,6 @@ const AVAILABLE_TAGS = [
   "opsec",
   "web2",
   "infra",
-  "seal-certified",
 ];
 
 const AVAILABLE_STANDARDS = ["SEAL", "W3OS", "DARC", "SOC2"] as const;

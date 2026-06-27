@@ -12,8 +12,7 @@
     "smart-contracts",
     "auditing",
     "ethereum",
-    "consensys",
-    "seal-certified"
+    "consensys"
   ],
   "endorsed": false,
   "github": "https://github.com/ConsenSys",

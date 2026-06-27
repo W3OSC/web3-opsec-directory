@@ -11,8 +11,6 @@
   ],
   "tags": [
     "opsec",
-    "seal-certified",
-    "soc2",
     "web2",
     "cloud-security",
     "open-source"
@@ -62,6 +60,9 @@
     "seal-partner"
   ],
   "standards": [
-    "W3OS"
+    "SEAL",
+    "W3OS",
+    "DARC",
+    "SOC2"
   ]
 }

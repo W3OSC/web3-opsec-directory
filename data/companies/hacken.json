@@ -13,8 +13,7 @@
     "smart-contracts",
     "auditing",
     "pentesting",
-    "bug-bounty",
-    "seal-certified"
+    "bug-bounty"
   ],
   "endorsed": false,
   "github": "https://github.com/hknio",

@@ -17,8 +17,7 @@
     "multisig",
     "osint",
     "training",
-    "physical-security",
-    "seal-certified"
+    "physical-security"
   ],
   "endorsed": true,
   "github": "https://github.com/Opsek",
@@ -35,7 +34,6 @@
     "seal-partner"
   ],
   "standards": [
-    "SEAL",
-    "W3OS"
+    "SEAL"
   ]
 }

@@ -11,8 +11,7 @@
   "tags": [
     "smart-contracts",
     "auditing",
-    "formal-verification",
-    "seal-certified"
+    "formal-verification"
   ],
   "endorsed": false,
   "github": "https://github.com/ChainSecurity",

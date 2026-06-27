@@ -18,8 +18,7 @@
     "vciso",
     "cosmos",
     "solana",
-    "ethereum",
-    "seal-certified"
+    "ethereum"
   ],
   "endorsed": false,
   "github": "https://github.com/oak-security",

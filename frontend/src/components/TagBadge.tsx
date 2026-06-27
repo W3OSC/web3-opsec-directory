@@ -1,5 +1,4 @@
 const TAG_STYLES: Record<string, string> = {
-  "seal-certified": "bg-blue-500/10 border-blue-500/40 text-blue-400",
   opsec: "bg-orange-500/10 border-orange-500/40 text-orange-400",
   web2: "bg-gray-500/10 border-gray-500/40 text-gray-400",
   infra: "bg-yellow-500/10 border-yellow-500/40 text-yellow-400",
