@@ -9,9 +9,7 @@
     "devsecops"
   ],
   "tags": [
-    "smart-contracts",
-    "auditing",
-    "formal-verification"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": "https://github.com/ChainSecurity",

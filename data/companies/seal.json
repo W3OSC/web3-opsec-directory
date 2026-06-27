@@ -4,8 +4,16 @@
   "description": "Nonprofit Web3 security organization providing 24/7 emergency incident response (SEAL 911), open-source security frameworks, threat intelligence blocklists, whitehat legal protection (Safe Harbor), and security certifications for crypto-native teams.",
   "website": "https://securityalliance.org",
   "logo": "/logos/seal.png",
-  "services": ["incident-response", "threat-intelligence", "security-training", "infrastructure"],
-  "tags": ["opsec", "incident-response", "threat-intelligence", "seal"],
+  "services": [
+    "incident-response",
+    "threat-intelligence",
+    "security-training",
+    "infrastructure"
+  ],
+  "tags": [
+    "opsec",
+    "incident-response"
+  ],
   "endorsed": false,
   "github": "https://github.com/security-alliance",
   "twitter": "https://x.com/SEAL_911",
@@ -26,9 +34,9 @@
       "name": "SEAL Safe Harbor",
       "url": "https://github.com/security-alliance/safe-harbor",
       "description": "On-chain legal framework pre-authorizing whitehats to rescue funds under active attack.",
-       "tool_slug": "seal-safe-harbor"
-     }
-   ],
+      "tool_slug": "seal-safe-harbor"
+    }
+  ],
   "standards": [
     "SEAL"
   ]

@@ -13,10 +13,7 @@
   ],
   "tags": [
     "opsec",
-    "threat-modeling",
-    "incident-response",
-    "multisig",
-    "seal"
+    "incident-response"
   ],
   "endorsed": false,
   "github": "https://github.com/0xShield3",

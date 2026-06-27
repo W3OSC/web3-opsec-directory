@@ -5,7 +5,12 @@ import { Search } from "lucide-react";
 const AVAILABLE_TAGS = [
   "opsec",
   "web2",
-  "infra",
+  "smart-contracts",
+  "infrastructure",
+  "devops",
+  "training",
+  "dns",
+  "incident-response",
 ];
 
 const AVAILABLE_STANDARDS = ["SEAL", "W3OS", "DARC", "SOC2"] as const;

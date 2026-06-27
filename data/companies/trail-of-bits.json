@@ -11,12 +11,9 @@
     "blockchain-forensics"
   ],
   "tags": [
-    "web2",
     "smart-contracts",
-    "auditing",
-    "red-team",
-    "cryptography",
-    "open-source"
+    "web2",
+    "devops"
   ],
   "endorsed": false,
   "github": "https://github.com/trailofbits",
