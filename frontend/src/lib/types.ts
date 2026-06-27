@@ -14,6 +14,8 @@ export interface Company {
   logo?: string;
   services: string[];
   tags: string[];
+  badges: string[];
+  standards: string[];
   endorsed: boolean;
   github?: string;
   twitter?: string;

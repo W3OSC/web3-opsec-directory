@@ -14,7 +14,6 @@
   ],
   "tags": [
     "opsec",
-    "web3",
     "multisig",
     "osint",
     "training",
@@ -34,5 +33,9 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL",
+    "W3OS"
   ]
 }

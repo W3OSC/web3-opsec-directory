@@ -9,7 +9,6 @@
     "threat-intelligence"
   ],
   "tags": [
-    "web3",
     "bug-bounty",
     "vulnerability-disclosure",
     "security-research",
@@ -21,5 +20,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

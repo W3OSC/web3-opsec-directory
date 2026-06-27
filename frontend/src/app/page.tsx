@@ -11,24 +11,30 @@ export default function HomePage() {
   const [companies, setCompanies] = useState<Company[]>([]);
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState<string[]>([]);
+  const [standards, setStandards] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [debouncedSearch] = useDebounce(search, 300);
 
   const fetchCompanies = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await api.companies.list({ search: debouncedSearch, tags });
+      const data = await api.companies.list({ search: debouncedSearch, tags, standards });
       setCompanies(data);
     } finally {
       setLoading(false);
     }
-  }, [debouncedSearch, tags]);
+  }, [debouncedSearch, tags, standards]);
 
   useEffect(() => { fetchCompanies(); }, [fetchCompanies]);
 
   const toggleTag = (tag: string) =>
     setTags((prev) =>
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+
+  const toggleStandard = (std: string) =>
+    setStandards((prev) =>
+      prev.includes(std) ? prev.filter((s) => s !== std) : [...prev, std]
     );
 
   return (
@@ -56,8 +62,10 @@ export default function HomePage() {
         <SearchBar
           search={search}
           tags={tags}
+          standards={standards}
           onSearch={setSearch}
           onTagToggle={toggleTag}
+          onStandardToggle={toggleStandard}
         />
       </div>
 

@@ -8,7 +8,6 @@
     "threat-intelligence"
   ],
   "tags": [
-    "web3",
     "defi",
     "risk-assessment",
     "transparency",
@@ -20,5 +19,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

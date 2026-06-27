@@ -9,7 +9,6 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
     "auditing",
     "ethereum",
@@ -29,5 +28,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

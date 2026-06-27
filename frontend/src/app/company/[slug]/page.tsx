@@ -10,6 +10,13 @@ export const dynamic = "force-dynamic";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
 
+const STANDARD_DETAIL_STYLES: Record<string, string> = {
+  SEAL: "bg-[rgb(67,57,219)]/15 border-[rgb(67,57,219)] text-[rgb(130,123,255)]",
+  W3OS: "bg-brand/10 border-brand text-brand",
+  DARC: "bg-[rgb(232,255,106)]/10 border-[rgb(232,255,106)] text-[rgb(232,255,106)]",
+  SOC2: "bg-rose-500/10 border-rose-400 text-rose-400",
+};
+
 async function getCompany(slug: string) {
   const res = await fetch(`${API_URL}/api/companies/${slug}`, { cache: "no-store" });
   if (!res.ok) return null;
@@ -140,9 +147,24 @@ export default async function CompanyPage({
           {company.description}
         </p>
 
+        {company.standards?.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {(["SEAL", "W3OS", "DARC", "SOC2"] as const)
+              .filter((s: string) => company.standards.includes(s))
+              .map((std: string) => (
+                <span
+                  key={std}
+                  className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded border border-l-2 ${STANDARD_DETAIL_STYLES[std] ?? "bg-gray-500/10 border-gray-500 text-gray-400"}`}
+                >
+                  {std}
+                </span>
+              ))}
+          </div>
+        )}
+
         <div className="flex flex-wrap gap-2 mb-10">
           {company.tags.map((tag: string) => (
-            <TagBadge key={tag} tag={tag} />
+            <TagBadge key={tag} tag={tag} compact={false} />
           ))}
         </div>
 

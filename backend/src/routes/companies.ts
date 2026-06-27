@@ -21,6 +21,7 @@ type CompanyJson = {
   services: string[];
   tags: string[];
   badges?: string[];
+  standards?: string[];
   endorsed?: boolean;
   github?: string | null;
   twitter?: string | null;
@@ -83,18 +84,20 @@ function normalizeJson(c: CompanyJson) {
     github: c.github ?? null,
     twitter: c.twitter ?? null,
     badges: c.badges ?? [],
+    standards: c.standards ?? [],
     openSourceRepos: c.open_source_repos ?? [],
     open_source_repos: undefined,
   };
 }
 
 function serializeRow(row: Company) {
-  const { open_source_repos, services, tags, badges, endorsed, ...rest } = row;
+  const { open_source_repos, services, tags, badges, standards, endorsed, ...rest } = row;
   return {
     ...rest,
     services: JSON.parse(services ?? "[]"),
     tags: JSON.parse(tags ?? "[]"),
     badges: JSON.parse(badges ?? "[]"),
+    standards: JSON.parse(standards ?? "[]"),
     openSourceRepos: JSON.parse(open_source_repos ?? "[]"),
     endorsed: endorsed === 1,
   };
@@ -104,6 +107,8 @@ companies.get("/", async (c) => {
   const search = (c.req.query("search") ?? "").toLowerCase();
   const tagsParam = c.req.query("tags") ?? "";
   const filterTags = tagsParam ? tagsParam.split(",") : [];
+  const standardsParam = c.req.query("standards") ?? "";
+  const filterStandards = standardsParam ? standardsParam.split(",") : [];
   const starsMap = await buildStarsMap();
 
   if (IS_DEV) {
@@ -120,6 +125,11 @@ companies.get("/", async (c) => {
         filterTags.every((t) => co.tags.includes(t))
       );
     }
+    if (filterStandards.length) {
+      all = all.filter((co) =>
+        filterStandards.every((s) => (co.standards ?? []).includes(s))
+      );
+    }
     const normalized = all.map(normalizeJson);
     return c.json(sortCompanies(normalized, starsMap));
   }
@@ -131,11 +141,11 @@ companies.get("/", async (c) => {
     params.push(`%${search}%`, `%${search}%`);
   }
   const rows = db.query(query).all(...params) as Company[];
-  const filtered = filterTags.length
-    ? rows.filter((r) =>
-        filterTags.every((tag) => JSON.parse(r.tags ?? "[]").includes(tag))
-      )
-    : rows;
+  const filtered = rows.filter((r) => {
+    if (filterTags.length && !filterTags.every((tag) => JSON.parse(r.tags ?? "[]").includes(tag))) return false;
+    if (filterStandards.length && !filterStandards.every((s) => JSON.parse(r.standards ?? "[]").includes(s))) return false;
+    return true;
+  });
   const serialized = filtered.map(serializeRow);
   return c.json(sortCompanies(serialized, starsMap));
 });

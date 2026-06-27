@@ -12,7 +12,6 @@
     "security-training"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
     "auditing",
     "pentesting",
@@ -28,5 +27,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

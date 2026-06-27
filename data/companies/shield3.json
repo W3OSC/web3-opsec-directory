@@ -13,7 +13,6 @@
   ],
   "tags": [
     "opsec",
-    "web3",
     "threat-modeling",
     "incident-response",
     "multisig",
@@ -33,5 +32,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

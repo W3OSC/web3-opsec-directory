@@ -5,7 +5,7 @@
   "website": "https://securityalliance.org",
   "logo": "/logos/seal.png",
   "services": ["incident-response", "threat-intelligence", "security-training", "infrastructure"],
-  "tags": ["opsec", "web3", "incident-response", "threat-intelligence", "seal"],
+  "tags": ["opsec", "incident-response", "threat-intelligence", "seal"],
   "endorsed": false,
   "github": "https://github.com/security-alliance",
   "twitter": "https://x.com/SEAL_911",
@@ -26,7 +26,10 @@
       "name": "SEAL Safe Harbor",
       "url": "https://github.com/security-alliance/safe-harbor",
       "description": "On-chain legal framework pre-authorizing whitehats to rescue funds under active attack.",
-      "tool_slug": "seal-safe-harbor"
-    }
+       "tool_slug": "seal-safe-harbor"
+     }
+   ],
+  "standards": [
+    "SEAL"
   ]
 }

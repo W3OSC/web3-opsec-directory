@@ -5,7 +5,7 @@
   "website": "https://theredguild.org",
   "logo": "/logos/the-red-guild.png",
   "services": ["opsec", "security-training", "devsecops", "red-team"],
-  "tags": ["opsec", "web3", "education", "devsecops", "phishing", "supply-chain"],
+  "tags": ["opsec", "education", "devsecops", "phishing", "supply-chain"],
   "endorsed": false,
   "github": "https://github.com/theredguild",
   "twitter": "https://x.com/theredguild",
@@ -20,7 +20,8 @@
       "name": "devcontainer-wizard",
       "url": "https://github.com/theredguild/devcontainer-wizard",
       "description": "CLI to quickly set up a fully equipped, security-hardened web3 dev container.",
-      "tool_slug": "red-guild-devcontainer-wizard"
-    }
-  ]
+       "tool_slug": "red-guild-devcontainer-wizard"
+     }
+   ],
+  "standards": []
 }

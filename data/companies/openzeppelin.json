@@ -10,7 +10,6 @@
     "infrastructure"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
     "auditing",
     "open-source",
@@ -30,5 +29,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

@@ -13,10 +13,11 @@ async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
 
 export const api = {
   companies: {
-    list: (params?: { search?: string; tags?: string[] }) => {
+    list: (params?: { search?: string; tags?: string[]; standards?: string[] }) => {
       const qs = new URLSearchParams();
       if (params?.search) qs.set("search", params.search);
       if (params?.tags?.length) qs.set("tags", params.tags.join(","));
+      if (params?.standards?.length) qs.set("standards", params.standards.join(","));
       return apiFetch<Company[]>(`/api/companies?${qs}`);
     },
     get: (slug: string) => apiFetch<Company>(`/api/companies/${slug}`),

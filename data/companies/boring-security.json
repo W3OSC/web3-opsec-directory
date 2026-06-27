@@ -5,9 +5,10 @@
   "website": "https://boringsecurity.com",
   "logo": "/logos/boring-security.jpg",
   "services": ["security-training", "opsec"],
-  "tags": ["opsec", "web3", "education", "training", "phishing"],
+  "tags": ["opsec", "education", "training", "phishing"],
   "endorsed": false,
   "github": "https://github.com/BoringSecDAO",
   "twitter": "https://x.com/BoringSecurity",
-  "open_source_repos": []
+  "open_source_repos": [],
+  "standards": []
 }
