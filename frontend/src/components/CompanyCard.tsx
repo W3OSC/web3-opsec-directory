@@ -51,51 +51,49 @@ export default function CompanyCard({ company }: { company: Company }) {
 
   return (
     <div className="card flex flex-col gap-3">
-      {/* Header row: logo + name/url + standards */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-3 min-w-0">
-          {company.logo ? (
-            <img
-              src={company.logo}
-              alt={company.name}
-              loading="lazy"
-              className="w-10 h-10 rounded-lg object-contain bg-surface-border flex-shrink-0"
-            />
-          ) : (
-            <div className="w-10 h-10 rounded-lg bg-surface-border flex-shrink-0 flex items-center justify-center text-lg font-bold text-brand">
-              {company.name[0]}
-            </div>
-          )}
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-white truncate">
-                {company.name}
-              </h3>
-              {company.endorsed && (
-                <BadgeCheck size={16} className="text-brand flex-shrink-0" />
-              )}
-            </div>
-            <a
-              href={company.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="text-xs text-gray-500 hover:text-brand transition-colors truncate block"
-            >
-              {company.website.replace(/^https?:\/\//, "")}
-            </a>
-          </div>
-        </div>
-
-        {/* Standards in top-right */}
-        {orderedStandards.length > 0 && (
-          <div className="flex flex-col gap-1.5 flex-shrink-0 items-end">
-            {orderedStandards.map((std) => (
-              <StandardBadge key={std} standard={std} />
-            ))}
+      {/* Header row: logo + name/url */}
+      <div className="flex items-center gap-3 min-w-0">
+        {company.logo ? (
+          <img
+            src={company.logo}
+            alt={company.name}
+            loading="lazy"
+            className="w-10 h-10 rounded-lg object-contain bg-surface-border flex-shrink-0"
+          />
+        ) : (
+          <div className="w-10 h-10 rounded-lg bg-surface-border flex-shrink-0 flex items-center justify-center text-lg font-bold text-brand">
+            {company.name[0]}
           </div>
         )}
+        <div className="min-w-0">
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-white truncate">
+              {company.name}
+            </h3>
+            {company.endorsed && (
+              <BadgeCheck size={16} className="text-brand flex-shrink-0" />
+            )}
+          </div>
+          <a
+            href={company.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="text-xs text-gray-500 hover:text-brand transition-colors truncate block"
+          >
+            {company.website.replace(/^https?:\/\//, "")}
+          </a>
+        </div>
       </div>
+
+      {/* Standards — horizontal row */}
+      {orderedStandards.length > 0 && (
+        <div className="flex gap-1.5">
+          {orderedStandards.map((std) => (
+            <StandardBadge key={std} standard={std} />
+          ))}
+        </div>
+      )}
 
       {/* Body: description (left) + tags (right) */}
       <div className="flex gap-4 flex-1">
