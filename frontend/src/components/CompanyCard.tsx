@@ -46,7 +46,7 @@ function StandardBadge({ standard }: { standard: string }) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={(e) => e.stopPropagation()}
-      className={`${s.bg} ${s.border} ${s.text} border border-surface-border border-l-2 rounded-sm py-0.5 text-[10px] font-bold tracking-wider uppercase text-center w-12 block hover:brightness-125 transition-[filter]`}
+      className={`${s.bg} ${s.border} ${s.text} border border-r-0 border-surface-border border-l-2 rounded-l-sm py-0.5 text-[10px] font-bold tracking-wider uppercase text-center w-12 block hover:brightness-125 transition-[filter]`}
     >
       {standard}
     </a>
@@ -62,9 +62,9 @@ export default function CompanyCard({ company }: { company: Company }) {
     <div className="card flex flex-col justify-between gap-3">
       {/* Top content — block container so floats work correctly */}
       <div className="flex-1 overflow-hidden">
-        {/* Float standards top-right — header + description both wrap around it */}
+        {/* Float standards top-right — flush with card edge */}
         {orderedStandards.length > 0 && (
-          <div className="float-right ml-3 flex flex-col gap-1.5 items-end">
+          <div className="float-right -mt-6 -mr-6 ml-3 flex flex-col gap-1.5 items-end">
             {orderedStandards.map((std) => (
               <StandardBadge key={std} standard={std} />
             ))}
