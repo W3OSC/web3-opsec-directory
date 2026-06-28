@@ -51,9 +51,9 @@ export default function CompanyCard({ company }: { company: Company }) {
 
   return (
     <div className="card flex flex-col justify-between gap-3">
-      {/* Top content */}
-      <div className="flex flex-col gap-3 flex-1">
-        {/* Standards — floated to top-right, content wraps around */}
+      {/* Top content — block container so floats work correctly */}
+      <div className="flex-1 overflow-hidden">
+        {/* Float standards top-right — header + description both wrap around it */}
         {orderedStandards.length > 0 && (
           <div className="float-right ml-3 flex flex-col gap-1.5 items-end">
             {orderedStandards.map((std) => (
@@ -63,7 +63,7 @@ export default function CompanyCard({ company }: { company: Company }) {
         )}
 
         {/* Header: logo + name/url */}
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-3 min-w-0 mb-3">
           {company.logo ? (
             <img
               src={company.logo}
@@ -97,14 +97,14 @@ export default function CompanyCard({ company }: { company: Company }) {
           </div>
         </div>
 
-        {/* Body: description */}
-        <p className="flex-1 text-sm text-gray-400 leading-relaxed">
+        {/* Description wraps around the float */}
+        <p className="text-sm text-gray-400 leading-relaxed">
           {company.description}
         </p>
 
-        {/* Tags — pinned to bottom of top content */}
+        {/* Tags — below description, clears the float */}
         {company.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5 clear-right mt-3">
             {company.tags.map((tag) => (
               <TagBadge key={tag} tag={tag} />
             ))}
