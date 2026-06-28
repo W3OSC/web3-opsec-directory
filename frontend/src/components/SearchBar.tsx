@@ -98,7 +98,7 @@ export default function SearchBar({
         )}
 
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs text-gray-600 uppercase tracking-wider font-medium">Filter</span>
+          <span className="text-xs text-gray-600 uppercase tracking-wider font-medium">Specialization</span>
           {AVAILABLE_TAGS.map((tag) => (
             <button
               key={tag}

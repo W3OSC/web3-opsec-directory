@@ -52,7 +52,7 @@ export default function CompanyCard({ company }: { company: Company }) {
   return (
     <div className="card flex flex-col justify-between gap-3">
       {/* Top content */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 flex-1">
         {/* Header: logo + name/url */}
         <div className="flex items-center gap-3 min-w-0">
           {company.logo ? (
@@ -97,12 +97,12 @@ export default function CompanyCard({ company }: { company: Company }) {
           </div>
         )}
 
-        {/* Body: description */}
-        <p className="text-sm text-gray-400 leading-relaxed">
+        {/* Body: description grows to fill space */}
+        <p className="flex-1 text-sm text-gray-400 leading-relaxed">
           {company.description}
         </p>
 
-        {/* Tags — horizontal row under description */}
+        {/* Tags — pinned to bottom of top content */}
         {company.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {company.tags.map((tag) => (
