@@ -5,12 +5,9 @@
   "repo_url": "https://github.com/ConsenSysDiligence/mythril",
   "maintainer_slug": "consensys-diligence",
   "tags": [
-    "smart-contracts",
     "symbolic-execution",
     "solidity",
-    "evm",
-    "open-source",
-    "web3"
+    "evm"
   ],
   "stars": 4252
 }

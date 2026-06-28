@@ -9,12 +9,7 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
-    "smart-contracts",
-    "auditing",
-    "defi",
-    "layer2",
-    "seal-certified"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": "https://github.com/quantstamp",
@@ -22,5 +17,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

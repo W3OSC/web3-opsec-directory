@@ -9,11 +9,7 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
-    "defi",
-    "smart-contracts",
-    "auditing",
-    "seal-certified"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": "https://github.com/defi-wonderland",
@@ -21,5 +17,9 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL",
+    "DARC"
   ]
 }

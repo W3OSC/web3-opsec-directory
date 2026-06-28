@@ -4,6 +4,9 @@
   "description": "CLI tool to quickly set up a fully equipped, security-hardened web3 dev container from prebuilt templates.",
   "repo_url": "https://github.com/theredguild/devcontainer-wizard",
   "maintainer_slug": "the-red-guild",
-  "tags": ["devsecops", "containers", "cli", "web3", "open-source"],
+  "tags": [
+    "containers",
+    "cli"
+  ],
   "stars": 21
 }

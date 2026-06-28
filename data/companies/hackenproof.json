@@ -9,11 +9,8 @@
     "threat-intelligence"
   ],
   "tags": [
-    "web3",
-    "bug-bounty",
-    "vulnerability-disclosure",
-    "security-research",
-    "seal-certified"
+    "smart-contracts",
+    "web2"
   ],
   "endorsed": false,
   "github": null,
@@ -21,5 +18,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

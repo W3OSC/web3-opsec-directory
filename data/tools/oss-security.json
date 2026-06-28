@@ -4,6 +4,10 @@
   "description": "Factory reset & harden your configuration: Linux, macOS, & Windows.",
   "repo_url": "https://github.com/Opsek/OSs-security",
   "maintainer_slug": "opsek",
-  "tags": ["hardening", "linux", "macos", "windows", "opsec", "open-source"],
+  "tags": [
+    "hardening",
+    "linux",
+    "macos"
+  ],
   "stars": 30
 }

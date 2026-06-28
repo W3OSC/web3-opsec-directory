@@ -10,13 +10,8 @@
     "infrastructure"
   ],
   "tags": [
-    "web3",
-    "ethereum",
     "smart-contracts",
-    "auditing",
-    "consensus-client",
-    "infrastructure",
-    "seal-certified"
+    "devops"
   ],
   "endorsed": false,
   "github": "https://github.com/sigp",
@@ -31,5 +26,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

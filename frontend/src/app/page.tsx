@@ -11,18 +11,18 @@ export default function HomePage() {
   const [companies, setCompanies] = useState<Company[]>([]);
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [standards, setStandards] = useState<string[]>([]);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [debouncedSearch] = useDebounce(search, 300);
 
   const fetchCompanies = useCallback(async () => {
-    setLoading(true);
     try {
-      const data = await api.companies.list({ search: debouncedSearch, tags });
+      const data = await api.companies.list({ search: debouncedSearch, tags, standards });
       setCompanies(data);
     } finally {
-      setLoading(false);
+      setInitialLoad(false);
     }
-  }, [debouncedSearch, tags]);
+  }, [debouncedSearch, tags, standards]);
 
   useEffect(() => { fetchCompanies(); }, [fetchCompanies]);
 
@@ -31,37 +31,52 @@ export default function HomePage() {
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
 
+  const toggleStandard = (std: string) =>
+    setStandards((prev) =>
+      prev.includes(std) ? prev.filter((s) => s !== std) : [...prev, std]
+    );
+
   return (
     <div className="pt-10">
-      <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-3">
-          Web3 Security Directory
-        </h1>
-        <p className="text-gray-400 text-lg max-w-2xl">
-          Curated list of web3 security firms offering opsec, infrastructure,
-          and web2 security services. Vetted and maintained by{" "}
-          <a
-            href="https://auditware.io"
-            className="text-brand hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Auditware
-          </a>
-          .
-        </p>
+      <div className="mb-6 flex items-start justify-between gap-8">
+        <div className="flex-shrink-0">
+          <h1 className="text-4xl font-bold text-white mb-3">
+            Web3 Security Directory
+          </h1>
+          <p className="text-gray-400 text-lg">
+            Curated list of web3 security firms offering OpSec, infrastructure,
+            and web2 security services.
+          </p>
+        </div>
+
+        <div className="flex-1 min-w-0 pt-1">
+          <SearchBar
+            search={search}
+            tags={tags}
+            standards={standards}
+            onSearch={setSearch}
+            onTagToggle={toggleTag}
+            onStandardToggle={toggleStandard}
+            showSearchInput
+            showFilters={false}
+          />
+        </div>
       </div>
 
       <div className="mb-8">
         <SearchBar
           search={search}
           tags={tags}
+          standards={standards}
           onSearch={setSearch}
           onTagToggle={toggleTag}
+          onStandardToggle={toggleStandard}
+          showSearchInput={false}
+          showFilters
         />
       </div>
 
-      {loading ? (
+      {initialLoad ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="card animate-pulse h-44" />

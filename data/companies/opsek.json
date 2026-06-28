@@ -14,12 +14,7 @@
   ],
   "tags": [
     "opsec",
-    "web3",
-    "multisig",
-    "osint",
-    "training",
-    "physical-security",
-    "seal-certified"
+    "training"
   ],
   "endorsed": true,
   "github": "https://github.com/Opsek",
@@ -34,5 +29,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

@@ -5,21 +5,25 @@ import { BadgeCheck, Github, Twitter, ExternalLink, Star, Sparkles } from "lucid
 import TagBadge from "@/components/TagBadge";
 import ShareButton from "@/components/ShareButton";
 import type { Tool } from "@/lib/types";
+import { api } from "@/lib/api";
+import { STANDARDS_ORDER, getStandardMeta } from "@/lib/standards";
 
 export const dynamic = "force-dynamic";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
-
 async function getCompany(slug: string) {
-  const res = await fetch(`${API_URL}/api/companies/${slug}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    return await api.companies.get(slug);
+  } catch {
+    return null;
+  }
 }
 
 async function getCompanyTools(slug: string): Promise<Tool[]> {
-  const res = await fetch(`${API_URL}/api/tools?maintainer=${slug}`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    return await api.tools.list({ maintainer: slug });
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({
@@ -42,7 +46,7 @@ export async function generateMetadata({
       url: `${siteUrl}/company/${slug}`,
       images: [
         {
-          url: `${API_URL}/api/og/${slug}`,
+          url: `${siteUrl}/api/og/${slug}`,
           width: 1200,
           height: 630,
           alt: company.name,
@@ -53,7 +57,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${company.name} | W3OS Security Directory`,
       description: company.description,
-      images: [`${API_URL}/api/og/${slug}`],
+      images: [`${siteUrl}/api/og/${slug}`],
     },
   };
 }
@@ -140,9 +144,27 @@ export default async function CompanyPage({
           {company.description}
         </p>
 
+        {company.standards?.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {STANDARDS_ORDER
+              .filter((s) => company.standards.includes(s))
+              .map((std) => {
+                const meta = getStandardMeta(std);
+                return (
+                  <span
+                    key={std}
+                    className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded border border-l-2 ${meta.bg} ${meta.border} ${meta.text}`}
+                  >
+                    {std}
+                  </span>
+                );
+              })}
+          </div>
+        )}
+
         <div className="flex flex-wrap gap-2 mb-10">
           {company.tags.map((tag: string) => (
-            <TagBadge key={tag} tag={tag} />
+            <TagBadge key={tag} tag={tag} compact={false} />
           ))}
         </div>
 

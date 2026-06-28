@@ -10,12 +10,8 @@
     "infrastructure"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "open-source",
-    "libraries",
-    "seal-certified"
+    "devops"
   ],
   "endorsed": false,
   "github": "https://github.com/OpenZeppelin",
@@ -30,5 +26,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

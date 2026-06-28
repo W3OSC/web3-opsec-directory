@@ -10,13 +10,8 @@
     "blockchain-forensics"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "monitoring",
-    "incident-response",
-    "blockchain-forensics",
-    "seal-certified"
+    "incident-response"
   ],
   "endorsed": false,
   "github": "https://github.com/blocksecteam",
@@ -24,5 +19,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

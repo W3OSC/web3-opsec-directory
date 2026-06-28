@@ -10,12 +10,8 @@
     "red-team"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "pentesting",
-    "bug-bounty",
-    "seal-certified"
+    "web2"
   ],
   "endorsed": false,
   "github": "https://github.com/hknio",
@@ -23,5 +19,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

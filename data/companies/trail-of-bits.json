@@ -11,14 +11,9 @@
     "blockchain-forensics"
   ],
   "tags": [
-    "web3",
-    "web2",
     "smart-contracts",
-    "auditing",
-    "red-team",
-    "cryptography",
-    "open-source",
-    "seal-certified"
+    "web2",
+    "devops"
   ],
   "endorsed": false,
   "github": "https://github.com/trailofbits",
@@ -39,5 +34,9 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL",
+    "SOC2"
   ]
 }

@@ -9,11 +9,7 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
-    "smart-contracts",
-    "auditing",
-    "formal-verification",
-    "seal-certified"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": "https://github.com/ChainSecurity",
@@ -21,5 +17,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

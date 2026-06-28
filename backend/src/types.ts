@@ -8,6 +8,7 @@ export interface Company {
   services: string;   // JSON array stored as text
   tags: string;       // JSON array stored as text
   badges: string;     // JSON array stored as text
+  standards: string;  // JSON array stored as text (e.g. ["SEAL","W3OS","DARC","SOC2"])
   endorsed: number;   // SQLite boolean (0/1)
   github?: string;
   twitter?: string;

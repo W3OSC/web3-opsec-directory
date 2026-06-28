@@ -9,12 +9,7 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
-    "smart-contracts",
-    "auditing",
-    "cryptography",
-    "defi",
-    "seal-certified"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": "https://github.com/zellic-io",
@@ -22,5 +17,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

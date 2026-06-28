@@ -8,11 +8,7 @@
     "threat-intelligence"
   ],
   "tags": [
-    "web3",
-    "defi",
-    "risk-assessment",
-    "transparency",
-    "seal-certified"
+    "smart-contracts"
   ],
   "endorsed": false,
   "github": null,
@@ -20,5 +16,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

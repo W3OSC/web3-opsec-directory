@@ -10,12 +10,8 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "education",
-    "training",
-    "seal-certified"
+    "training"
   ],
   "endorsed": false,
   "github": "https://github.com/Cyfrin",
@@ -30,5 +26,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

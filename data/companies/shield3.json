@@ -13,12 +13,7 @@
   ],
   "tags": [
     "opsec",
-    "web3",
-    "threat-modeling",
-    "incident-response",
-    "multisig",
-    "seal",
-    "seal-certified"
+    "incident-response"
   ],
   "endorsed": false,
   "github": "https://github.com/0xShield3",
@@ -33,5 +28,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

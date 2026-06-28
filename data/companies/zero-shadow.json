@@ -10,12 +10,8 @@
     "blockchain-forensics"
   ],
   "tags": [
-    "web3",
     "opsec",
-    "threat-intelligence",
-    "blockchain-forensics",
-    "investigation",
-    "seal-certified"
+    "incident-response"
   ],
   "endorsed": false,
   "github": null,
@@ -23,5 +19,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

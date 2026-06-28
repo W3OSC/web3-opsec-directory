@@ -12,15 +12,9 @@
     "security-training"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "pentesting",
-    "vciso",
-    "cosmos",
-    "solana",
-    "ethereum",
-    "seal-certified"
+    "opsec",
+    "web2"
   ],
   "endorsed": false,
   "github": "https://github.com/oak-security",
@@ -28,5 +22,8 @@
   "open_source_repos": [],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

@@ -4,6 +4,9 @@
   "description": "Threat intelligence blocklists maintained by SEAL - a regularly updated, curated list of known malicious addresses and actors in Web3.",
   "repo_url": "https://github.com/security-alliance/blocklists",
   "maintainer_slug": "seal",
-  "tags": ["threat-intelligence", "blocklist", "web3", "open-source"],
+  "tags": [
+    "threat-intelligence",
+    "blocklist"
+  ],
   "stars": 10
 }

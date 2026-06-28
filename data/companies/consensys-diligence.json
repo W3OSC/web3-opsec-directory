@@ -9,12 +9,8 @@
     "devsecops"
   ],
   "tags": [
-    "web3",
     "smart-contracts",
-    "auditing",
-    "ethereum",
-    "consensys",
-    "seal-certified"
+    "devops"
   ],
   "endorsed": false,
   "github": "https://github.com/ConsenSys",
@@ -29,5 +25,8 @@
   ],
   "badges": [
     "seal-partner"
+  ],
+  "standards": [
+    "SEAL"
   ]
 }

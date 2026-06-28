@@ -4,6 +4,10 @@
   "description": "Independently verify Safe multisig transaction hashes before signing. CLI, web UI, and library - calculates EIP-712 hashes, verifies against Safe API, and runs security analysis for delegate calls, gas token attacks, and owner modifications.",
   "repo_url": "https://github.com/0xShield3/sky-safe-tx-decoder",
   "maintainer_slug": "shield3",
-  "tags": ["multisig", "safe-wallet", "verification", "web3", "open-source"],
+  "tags": [
+    "multisig",
+    "safe-wallet",
+    "verification"
+  ],
   "stars": 0
 }
