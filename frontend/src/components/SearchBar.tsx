@@ -6,7 +6,6 @@ const AVAILABLE_TAGS = [
   "opsec",
   "web2",
   "smart-contracts",
-  "infrastructure",
   "devops",
   "training",
   "dns",
@@ -18,7 +17,7 @@ const TAG_STYLES: Record<string, { active: string; inactive: string }> = {
   opsec:               { active: "bg-orange-500/10 border-orange-500/40 text-orange-400",   inactive: "bg-transparent border-surface-border text-gray-500 hover:border-orange-500/30 hover:text-orange-400/60" },
   web2:                { active: "bg-gray-500/10 border-gray-500/40 text-gray-300",          inactive: "bg-transparent border-surface-border text-gray-500 hover:border-gray-500/30 hover:text-gray-300/60" },
   "smart-contracts":   { active: "bg-violet-500/10 border-violet-500/40 text-violet-400",   inactive: "bg-transparent border-surface-border text-gray-500 hover:border-violet-500/30 hover:text-violet-400/60" },
-  infrastructure:      { active: "bg-yellow-500/10 border-yellow-500/40 text-yellow-400",   inactive: "bg-transparent border-surface-border text-gray-500 hover:border-yellow-500/30 hover:text-yellow-400/60" },
+
   devops:              { active: "bg-sky-500/10 border-sky-500/40 text-sky-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-sky-500/30 hover:text-sky-400/60" },
   training:            { active: "bg-emerald-500/10 border-emerald-500/40 text-emerald-400",inactive: "bg-transparent border-surface-border text-gray-500 hover:border-emerald-500/30 hover:text-emerald-400/60" },
   dns:                 { active: "bg-pink-500/10 border-pink-500/40 text-pink-400",          inactive: "bg-transparent border-surface-border text-gray-500 hover:border-pink-500/30 hover:text-pink-400/60" },

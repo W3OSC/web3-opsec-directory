@@ -2,7 +2,6 @@ const TAG_STYLES: Record<string, string> = {
   opsec:             "bg-orange-500/10 border-orange-500/40 text-orange-400",
   web2:              "bg-gray-500/10 border-gray-500/40 text-gray-300",
   "smart-contracts": "bg-violet-500/10 border-violet-500/40 text-violet-400",
-  infrastructure:    "bg-yellow-500/10 border-yellow-500/40 text-yellow-400",
   devops:            "bg-sky-500/10 border-sky-500/40 text-sky-400",
   training:          "bg-emerald-500/10 border-emerald-500/40 text-emerald-400",
   dns:               "bg-pink-500/10 border-pink-500/40 text-pink-400",
