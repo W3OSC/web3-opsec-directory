@@ -4,6 +4,10 @@
   "description": "Scan your dependencies for supply chain risks. Detects malicious or compromised packages before they land in your project.",
   "repo_url": "https://github.com/w3osc/depenemy",
   "maintainer_slug": "auditware",
-  "tags": ["supply-chain", "dependencies", "scanner", "open-source"],
+  "tags": [
+    "supply-chain",
+    "dependencies",
+    "scanner"
+  ],
   "stars": 5
 }

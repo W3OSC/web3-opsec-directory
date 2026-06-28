@@ -2,26 +2,24 @@
 
 import { Search } from "lucide-react";
 
-const AVAILABLE_TAGS = [
-  "opsec",
-  "web2",
-  "smart-contracts",
-  "devops",
-  "training",
-  "dns",
-  "incident-response",
-] as const;
-
 // Matches TagBadge TAG_STYLES — active uses full color, inactive is dimmed
 const TAG_STYLES: Record<string, { active: string; inactive: string }> = {
-  opsec:               { active: "bg-orange-500/10 border-orange-500/40 text-orange-400",   inactive: "bg-transparent border-surface-border text-gray-500 hover:border-orange-500/30 hover:text-orange-400/60" },
-  web2:                { active: "bg-gray-500/10 border-gray-500/40 text-gray-300",          inactive: "bg-transparent border-surface-border text-gray-500 hover:border-gray-500/30 hover:text-gray-300/60" },
-  "smart-contracts":   { active: "bg-violet-500/10 border-violet-500/40 text-violet-400",   inactive: "bg-transparent border-surface-border text-gray-500 hover:border-violet-500/30 hover:text-violet-400/60" },
-
-  devops:              { active: "bg-sky-500/10 border-sky-500/40 text-sky-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-sky-500/30 hover:text-sky-400/60" },
-  training:            { active: "bg-emerald-500/10 border-emerald-500/40 text-emerald-400",inactive: "bg-transparent border-surface-border text-gray-500 hover:border-emerald-500/30 hover:text-emerald-400/60" },
-  dns:                 { active: "bg-pink-500/10 border-pink-500/40 text-pink-400",          inactive: "bg-transparent border-surface-border text-gray-500 hover:border-pink-500/30 hover:text-pink-400/60" },
-  "incident-response": { active: "bg-red-500/10 border-red-500/40 text-red-400",            inactive: "bg-transparent border-surface-border text-gray-500 hover:border-red-500/30 hover:text-red-400/60" },
+  opsec:                { active: "bg-orange-500/10 border-orange-500/40 text-orange-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-orange-500/30 hover:text-orange-400/60" },
+  web2:                 { active: "bg-gray-500/10 border-gray-500/40 text-gray-300",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-gray-500/30 hover:text-gray-300/60" },
+  "smart-contracts":    { active: "bg-violet-500/10 border-violet-500/40 text-violet-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-violet-500/30 hover:text-violet-400/60" },
+  devops:               { active: "bg-sky-500/10 border-sky-500/40 text-sky-400",              inactive: "bg-transparent border-surface-border text-gray-500 hover:border-sky-500/30 hover:text-sky-400/60" },
+  training:             { active: "bg-emerald-500/10 border-emerald-500/40 text-emerald-400", inactive: "bg-transparent border-surface-border text-gray-500 hover:border-emerald-500/30 hover:text-emerald-400/60" },
+  dns:                  { active: "bg-pink-500/10 border-pink-500/40 text-pink-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-pink-500/30 hover:text-pink-400/60" },
+  "incident-response":  { active: "bg-red-500/10 border-red-500/40 text-red-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-red-500/30 hover:text-red-400/60" },
+  "ai-security":        { active: "bg-purple-500/10 border-purple-500/40 text-purple-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-purple-500/30 hover:text-purple-400/60" },
+  devsecops:            { active: "bg-sky-500/10 border-sky-500/40 text-sky-400",              inactive: "bg-transparent border-surface-border text-gray-500 hover:border-sky-500/30 hover:text-sky-400/60" },
+  "static-analysis":    { active: "bg-indigo-500/10 border-indigo-500/40 text-indigo-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-indigo-500/30 hover:text-indigo-400/60" },
+  fuzzing:              { active: "bg-amber-500/10 border-amber-500/40 text-amber-400",        inactive: "bg-transparent border-surface-border text-gray-500 hover:border-amber-500/30 hover:text-amber-400/60" },
+  "supply-chain":       { active: "bg-rose-500/10 border-rose-500/40 text-rose-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-rose-500/30 hover:text-rose-400/60" },
+  monitoring:           { active: "bg-teal-500/10 border-teal-500/40 text-teal-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-teal-500/30 hover:text-teal-400/60" },
+  multisig:             { active: "bg-cyan-500/10 border-cyan-500/40 text-cyan-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-cyan-500/30 hover:text-cyan-400/60" },
+  hardening:            { active: "bg-orange-500/10 border-orange-500/40 text-orange-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-orange-500/30 hover:text-orange-400/60" },
+  "threat-intelligence":{ active: "bg-red-500/10 border-red-500/40 text-red-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-red-500/30 hover:text-red-400/60" },
 };
 
 const AVAILABLE_STANDARDS = ["SEAL", "W3OS", "DARC", "SOC2"] as const;
@@ -48,10 +46,22 @@ const STANDARD_STYLES: Record<string, { active: string; inactive: string }> = {
 // Shared compact chip style matching TagBadge compact mode
 const CHIP = "border rounded-sm px-2 py-0.5 text-[10px] font-medium whitespace-nowrap transition-colors cursor-pointer";
 
+const DEFAULT_TAGS = [
+  "opsec",
+  "web2",
+  "smart-contracts",
+  "devops",
+  "training",
+  "dns",
+  "incident-response",
+] as const;
+
 interface Props {
   search: string;
   tags: string[];
   standards?: string[];
+  availableTags?: readonly string[];
+  placeholder?: string;
   onSearch: (v: string) => void;
   onTagToggle: (tag: string) => void;
   onStandardToggle?: (standard: string) => void;
@@ -64,6 +74,8 @@ export default function SearchBar({
   search,
   tags,
   standards = [],
+  availableTags = DEFAULT_TAGS,
+  placeholder = "Search companies...",
   onSearch,
   onTagToggle,
   onStandardToggle,
@@ -81,7 +93,7 @@ export default function SearchBar({
           />
           <input
             type="text"
-            placeholder="Search companies..."
+            placeholder={placeholder}
             value={search}
             onChange={(e) => onSearch(e.target.value)}
             className="w-full bg-surface-raised border border-surface-border rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand/60 transition-colors"
@@ -115,8 +127,8 @@ export default function SearchBar({
 
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs text-gray-600 uppercase tracking-wider font-medium">Specialization</span>
-          {AVAILABLE_TAGS.map((tag) => {
-            const s = TAG_STYLES[tag];
+          {availableTags.map((tag) => {
+            const s = TAG_STYLES[tag] ?? { active: "bg-gray-500/10 border-gray-500/40 text-gray-300", inactive: "bg-transparent border-surface-border text-gray-500 hover:border-gray-500/30 hover:text-gray-300/60" };
             const active = tags.includes(tag);
             return (
               <button

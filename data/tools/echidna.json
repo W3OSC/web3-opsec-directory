@@ -5,12 +5,9 @@
   "repo_url": "https://github.com/crytic/echidna",
   "maintainer_slug": "trail-of-bits",
   "tags": [
-    "smart-contracts",
     "fuzzing",
     "solidity",
-    "testing",
-    "open-source",
-    "web3"
+    "testing"
   ],
   "stars": 3156
 }

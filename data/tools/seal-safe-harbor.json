@@ -4,6 +4,10 @@
   "description": "On-chain legal framework and smart contracts that pre-authorize whitehats to rescue funds during active attacks, with structured bounties and legal protections.",
   "repo_url": "https://github.com/security-alliance/safe-harbor",
   "maintainer_slug": "seal",
-  "tags": ["safe-harbor", "whitehat", "incident-response", "web3", "open-source"],
+  "tags": [
+    "safe-harbor",
+    "whitehat",
+    "incident-response"
+  ],
   "stars": 84
 }
