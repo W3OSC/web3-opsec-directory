@@ -20,21 +20,22 @@ export async function seedCompanies() {
   for (const file of jsonFiles) {
     const c = JSON.parse(await readFile(join(COMPANIES_DIR, file), "utf-8"));
     db.run(
-      `INSERT INTO companies (slug, name, description, website, logo, services, tags, endorsed, github, twitter, open_source_repos, badges, approved)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
+      `INSERT INTO companies (slug, name, description, website, logo, services, tags, endorsed, github, twitter, open_source_repos, badges, standards, approved)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
        ON CONFLICT(slug) DO UPDATE SET
          name = excluded.name, description = excluded.description,
          website = excluded.website, logo = excluded.logo,
          services = excluded.services, tags = excluded.tags,
          endorsed = excluded.endorsed, github = excluded.github,
          twitter = excluded.twitter, open_source_repos = excluded.open_source_repos,
-         badges = excluded.badges`,
+         badges = excluded.badges, standards = excluded.standards`,
       [
         c.slug, c.name, c.description, c.website, c.logo ?? "",
         JSON.stringify(c.services ?? []), JSON.stringify(c.tags ?? []),
         c.endorsed ? 1 : 0, c.github ?? null, c.twitter ?? null,
         JSON.stringify(c.open_source_repos ?? []),
         JSON.stringify(c.badges ?? []),
+        JSON.stringify(c.standards ?? []),
       ]
     );
   }
