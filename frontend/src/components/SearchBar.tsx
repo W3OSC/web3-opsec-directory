@@ -1,6 +1,7 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { STANDARDS_ORDER, getStandardMeta } from "@/lib/standards";
 
 // Matches TagBadge TAG_STYLES — active uses full color, inactive is dimmed
 const TAG_STYLES: Record<string, { active: string; inactive: string }> = {
@@ -12,7 +13,7 @@ const TAG_STYLES: Record<string, { active: string; inactive: string }> = {
   dns:                  { active: "bg-pink-500/10 border-pink-500/40 text-pink-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-pink-500/30 hover:text-pink-400/60" },
   "incident-response":  { active: "bg-red-500/10 border-red-500/40 text-red-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-red-500/30 hover:text-red-400/60" },
   "ai-security":        { active: "bg-purple-500/10 border-purple-500/40 text-purple-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-purple-500/30 hover:text-purple-400/60" },
-  devsecops:            { active: "bg-sky-500/10 border-sky-500/40 text-sky-400",              inactive: "bg-transparent border-surface-border text-gray-500 hover:border-sky-500/30 hover:text-sky-400/60" },
+  devsecops:            { active: "bg-blue-500/10 border-blue-500/40 text-blue-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-blue-500/30 hover:text-blue-400/60" },
   "static-analysis":    { active: "bg-indigo-500/10 border-indigo-500/40 text-indigo-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-indigo-500/30 hover:text-indigo-400/60" },
   fuzzing:              { active: "bg-amber-500/10 border-amber-500/40 text-amber-400",        inactive: "bg-transparent border-surface-border text-gray-500 hover:border-amber-500/30 hover:text-amber-400/60" },
   "supply-chain":       { active: "bg-rose-500/10 border-rose-500/40 text-rose-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-rose-500/30 hover:text-rose-400/60" },
@@ -20,27 +21,6 @@ const TAG_STYLES: Record<string, { active: string; inactive: string }> = {
   multisig:             { active: "bg-cyan-500/10 border-cyan-500/40 text-cyan-400",           inactive: "bg-transparent border-surface-border text-gray-500 hover:border-cyan-500/30 hover:text-cyan-400/60" },
   hardening:            { active: "bg-orange-500/10 border-orange-500/40 text-orange-400",    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-orange-500/30 hover:text-orange-400/60" },
   "threat-intelligence":{ active: "bg-red-500/10 border-red-500/40 text-red-400",             inactive: "bg-transparent border-surface-border text-gray-500 hover:border-red-500/30 hover:text-red-400/60" },
-};
-
-const AVAILABLE_STANDARDS = ["SEAL", "W3OS", "DARC", "SOC2"] as const;
-
-const STANDARD_STYLES: Record<string, { active: string; inactive: string }> = {
-  SEAL: {
-    active:   "bg-[rgb(67,57,219)]/15 border-[rgb(67,57,219)] text-[rgb(130,123,255)]",
-    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-[rgb(67,57,219)]/40 hover:text-[rgb(130,123,255)]/60",
-  },
-  W3OS: {
-    active:   "bg-brand/10 border-brand text-brand",
-    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-brand/40 hover:text-brand/60",
-  },
-  DARC: {
-    active:   "bg-[rgb(232,255,106)]/10 border-[rgb(232,255,106)] text-[rgb(232,255,106)]",
-    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-[rgb(232,255,106)]/40 hover:text-[rgb(232,255,106)]/60",
-  },
-  SOC2: {
-    active:   "bg-rose-500/10 border-rose-400 text-rose-400",
-    inactive: "bg-transparent border-surface-border text-gray-500 hover:border-rose-400/40 hover:text-rose-400/60",
-  },
 };
 
 // Shared compact chip style matching TagBadge compact mode
@@ -106,14 +86,14 @@ export default function SearchBar({
           <>
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs text-gray-600 uppercase tracking-wider font-medium">Standards</span>
-              {AVAILABLE_STANDARDS.map((std) => {
-                const s = STANDARD_STYLES[std];
+              {STANDARDS_ORDER.map((std) => {
+                const s = getStandardMeta(std);
                 const active = standards.includes(std);
                 return (
                   <button
                     key={std}
                     onClick={() => onStandardToggle(std)}
-                    className={`${CHIP} ${active ? s.active : s.inactive}`}
+                    className={`${CHIP} ${active ? `${s.bg} ${s.border} ${s.text}` : s.inactiveClass}`}
                   >
                     {std}
                   </button>

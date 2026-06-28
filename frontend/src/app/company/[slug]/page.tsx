@@ -5,28 +5,25 @@ import { BadgeCheck, Github, Twitter, ExternalLink, Star, Sparkles } from "lucid
 import TagBadge from "@/components/TagBadge";
 import ShareButton from "@/components/ShareButton";
 import type { Tool } from "@/lib/types";
+import { api } from "@/lib/api";
+import { STANDARDS_ORDER, getStandardMeta } from "@/lib/standards";
 
 export const dynamic = "force-dynamic";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
-
-const STANDARD_DETAIL_STYLES: Record<string, string> = {
-  SEAL: "bg-[rgb(67,57,219)]/15 border-[rgb(67,57,219)] text-[rgb(130,123,255)]",
-  W3OS: "bg-brand/10 border-brand text-brand",
-  DARC: "bg-[rgb(232,255,106)]/10 border-[rgb(232,255,106)] text-[rgb(232,255,106)]",
-  SOC2: "bg-rose-500/10 border-rose-400 text-rose-400",
-};
-
 async function getCompany(slug: string) {
-  const res = await fetch(`${API_URL}/api/companies/${slug}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
+  try {
+    return await api.companies.get(slug);
+  } catch {
+    return null;
+  }
 }
 
 async function getCompanyTools(slug: string): Promise<Tool[]> {
-  const res = await fetch(`${API_URL}/api/tools?maintainer=${slug}`, { cache: "no-store" });
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    return await api.tools.list({ maintainer: slug });
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({
@@ -49,7 +46,7 @@ export async function generateMetadata({
       url: `${siteUrl}/company/${slug}`,
       images: [
         {
-          url: `${API_URL}/api/og/${slug}`,
+          url: `${siteUrl}/api/og/${slug}`,
           width: 1200,
           height: 630,
           alt: company.name,
@@ -60,7 +57,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${company.name} | W3OS Security Directory`,
       description: company.description,
-      images: [`${API_URL}/api/og/${slug}`],
+      images: [`${siteUrl}/api/og/${slug}`],
     },
   };
 }
@@ -149,16 +146,19 @@ export default async function CompanyPage({
 
         {company.standards?.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-4">
-            {(["SEAL", "W3OS", "DARC", "SOC2"] as const)
-              .filter((s: string) => company.standards.includes(s))
-              .map((std: string) => (
-                <span
-                  key={std}
-                  className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded border border-l-2 ${STANDARD_DETAIL_STYLES[std] ?? "bg-gray-500/10 border-gray-500 text-gray-400"}`}
-                >
-                  {std}
-                </span>
-              ))}
+            {STANDARDS_ORDER
+              .filter((s) => company.standards.includes(s))
+              .map((std) => {
+                const meta = getStandardMeta(std);
+                return (
+                  <span
+                    key={std}
+                    className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded border border-l-2 ${meta.bg} ${meta.border} ${meta.text}`}
+                  >
+                    {std}
+                  </span>
+                );
+              })}
           </div>
         )}
 
