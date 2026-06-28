@@ -101,16 +101,16 @@ export default function CompanyCard({ company }: { company: Company }) {
         <p className="text-sm text-gray-400 leading-relaxed">
           {company.description}
         </p>
-
-        {/* Tags — below description, clears the float */}
-        {company.tags.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 clear-right mt-3">
-            {company.tags.map((tag) => (
-              <TagBadge key={tag} tag={tag} />
-            ))}
-          </div>
-        )}
       </div>
+
+      {/* Tags — separate flex item, hugs the footer divider */}
+      {company.tags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {company.tags.map((tag) => (
+            <TagBadge key={tag} tag={tag} />
+          ))}
+        </div>
+      )}
 
       {/* Footer: social icons (left) + view profile (right) */}
       <div className="pt-2 border-t border-surface-border flex items-center justify-between">
