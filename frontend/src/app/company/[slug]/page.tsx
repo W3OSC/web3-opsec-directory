@@ -5,25 +5,22 @@ import { BadgeCheck, Github, Twitter, ExternalLink, Star, Sparkles } from "lucid
 import TagBadge from "@/components/TagBadge";
 import ShareButton from "@/components/ShareButton";
 import type { Tool } from "@/lib/types";
-import { api } from "@/lib/api";
 import { STANDARDS_ORDER, getStandardMeta } from "@/lib/standards";
 
 export const dynamic = "force-dynamic";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+
 async function getCompany(slug: string) {
-  try {
-    return await api.companies.get(slug);
-  } catch {
-    return null;
-  }
+  const res = await fetch(`${API_URL}/api/companies/${slug}`, { cache: "no-store" });
+  if (!res.ok) return null;
+  return res.json();
 }
 
 async function getCompanyTools(slug: string): Promise<Tool[]> {
-  try {
-    return await api.tools.list({ maintainer: slug });
-  } catch {
-    return [];
-  }
+  const res = await fetch(`${API_URL}/api/tools?maintainer=${slug}`, { cache: "no-store" });
+  if (!res.ok) return [];
+  return res.json();
 }
 
 export async function generateMetadata({
