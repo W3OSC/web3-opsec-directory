@@ -44,16 +44,7 @@ export default function HomePage() {
         </h1>
         <p className="text-gray-400 text-lg max-w-2xl">
           Curated list of web3 security firms offering opsec, infrastructure,
-          and web2 security services. Vetted and maintained by{" "}
-          <a
-            href="https://auditware.io"
-            className="text-brand hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Auditware
-          </a>
-          .
+          and web2 security services.
         </p>
       </div>
 
