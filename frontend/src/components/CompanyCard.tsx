@@ -25,7 +25,10 @@ export default function CompanyCard({ company }: { company: Company }) {
   );
 
   return (
-    <div className="card flex flex-col justify-between gap-3">
+    <Link
+      href={`/company/${company.slug}`}
+      className="card flex flex-col justify-between gap-3 cursor-pointer hover:border-brand/40 transition-colors"
+    >
       {/* Top content — block container so floats work correctly */}
       <div className="flex-1 after:content-[''] after:block after:clear-both">
         {/* Float standards top-right — flush with card edge */}
@@ -122,14 +125,11 @@ export default function CompanyCard({ company }: { company: Company }) {
             <Globe size={15} />
           </a>
         </div>
-        <Link
-          href={`/company/${company.slug}`}
-          className="flex items-center gap-1 text-xs text-gray-500 hover:text-brand transition-colors group"
-        >
+        <span className="flex items-center gap-1 text-xs text-gray-500 group-hover:text-brand transition-colors">
           View profile
-          <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
-        </Link>
+          <ArrowRight size={12} />
+        </span>
       </div>
-    </div>
+    </Link>
   );
 }
