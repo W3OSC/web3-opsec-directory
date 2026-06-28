@@ -6,41 +6,50 @@ import { BadgeCheck, Github, Globe, Twitter, ArrowRight } from "lucide-react";
 // Standards display order and styling
 const STANDARDS_ORDER = ["SEAL", "W3OS", "DARC", "SOC2"] as const;
 
-const STANDARD_STYLES: Record<string, { bg: string; text: string; border: string }> = {
+const STANDARD_META: Record<string, { bg: string; text: string; border: string; href: string }> = {
   SEAL: {
     bg: "bg-[rgb(67,57,219)]/15",
     border: "border-l-[rgb(67,57,219)]",
     text: "text-[rgb(130,123,255)]",
+    href: "https://frameworks.securityalliance.org/certs/overview/",
   },
   W3OS: {
     bg: "bg-brand/10",
     border: "border-l-brand",
     text: "text-brand",
+    href: "https://github.com/W3OSC/web3-opsec-standard",
   },
   DARC: {
     bg: "bg-[rgb(232,255,106)]/10",
     border: "border-l-[rgb(232,255,106)]",
     text: "text-[rgb(232,255,106)]",
+    href: "https://darcstandard.org",
   },
   SOC2: {
     bg: "bg-rose-500/10",
     border: "border-l-rose-400",
     text: "text-rose-400",
+    href: "https://www.vanta.com/collection/soc-2/what-is-soc-2",
   },
 };
 
 function StandardBadge({ standard }: { standard: string }) {
-  const s = STANDARD_STYLES[standard] ?? {
+  const s = STANDARD_META[standard] ?? {
     bg: "bg-gray-500/10",
     border: "border-l-gray-500",
     text: "text-gray-400",
+    href: "#",
   };
   return (
-    <div
-      className={`${s.bg} ${s.border} ${s.text} border border-surface-border border-l-2 rounded-sm px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase`}
+    <a
+      href={s.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={(e) => e.stopPropagation()}
+      className={`${s.bg} ${s.border} ${s.text} border border-surface-border border-l-2 rounded-sm py-0.5 text-[10px] font-bold tracking-wider uppercase text-center w-12 block hover:brightness-125 transition-[filter]`}
     >
       {standard}
-    </div>
+    </a>
   );
 }
 
