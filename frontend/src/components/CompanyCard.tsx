@@ -97,20 +97,19 @@ export default function CompanyCard({ company }: { company: Company }) {
           </div>
         )}
 
-        {/* Body: description (left) + tags (right) */}
-        <div className="flex gap-4">
-          <p className="flex-1 text-sm text-gray-400 leading-relaxed">
-            {company.description}
-          </p>
+        {/* Body: description */}
+        <p className="text-sm text-gray-400 leading-relaxed">
+          {company.description}
+        </p>
 
-          {company.tags.length > 0 && (
-            <div className="flex flex-col gap-1.5 flex-shrink-0 items-end min-w-[68px]">
-              {company.tags.map((tag) => (
-                <TagBadge key={tag} tag={tag} />
-              ))}
-            </div>
-          )}
-        </div>
+        {/* Tags — horizontal row under description */}
+        {company.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {company.tags.map((tag) => (
+              <TagBadge key={tag} tag={tag} />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Footer: social icons (left) + view profile (right) */}
