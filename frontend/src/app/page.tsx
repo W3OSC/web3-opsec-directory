@@ -44,7 +44,7 @@ export default function HomePage() {
             Web3 Security Directory
           </h1>
           <p className="text-gray-400 text-lg">
-            Curated list of web3 security firms offering opsec, infrastructure,
+            Curated list of web3 security firms offering OpSec, infrastructure,
             and web2 security services.
           </p>
         </div>

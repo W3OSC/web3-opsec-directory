@@ -71,8 +71,7 @@ export default function ToolsPage() {
         <div className="flex-shrink-0">
           <h1 className="text-4xl font-bold text-white mb-3">Security Tools</h1>
           <p className="text-gray-400 text-lg max-w-2xl">
-            Open source tools for web3 opsec and infrastructure security,
-            maintained by the W3OS ecosystem.
+            Open source tools for web3 OpSec and infrastructure security.
           </p>
         </div>
 
