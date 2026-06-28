@@ -38,25 +38,27 @@ export default function HomePage() {
 
   return (
     <div className="pt-10">
-      <div className="mb-10">
-        <h1 className="text-4xl font-bold text-white mb-3">
-          Web3 Security Directory
-        </h1>
-        <p className="text-gray-400 text-lg max-w-2xl">
-          Curated list of web3 security firms offering opsec, infrastructure,
-          and web2 security services.
-        </p>
-      </div>
+      <div className="mb-10 flex items-start justify-between gap-8">
+        <div className="flex-shrink-0">
+          <h1 className="text-4xl font-bold text-white mb-3">
+            Web3 Security Directory
+          </h1>
+          <p className="text-gray-400 text-lg">
+            Curated list of web3 security firms offering opsec, infrastructure,
+            and web2 security services.
+          </p>
+        </div>
 
-      <div className="mb-8">
-        <SearchBar
-          search={search}
-          tags={tags}
-          standards={standards}
-          onSearch={setSearch}
-          onTagToggle={toggleTag}
-          onStandardToggle={toggleStandard}
-        />
+        <div className="flex-1 min-w-0 pt-1">
+          <SearchBar
+            search={search}
+            tags={tags}
+            standards={standards}
+            onSearch={setSearch}
+            onTagToggle={toggleTag}
+            onStandardToggle={toggleStandard}
+          />
+        </div>
       </div>
 
       {initialLoad ? (
