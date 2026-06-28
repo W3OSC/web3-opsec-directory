@@ -38,5 +38,6 @@
   "standards": [
     "SEAL",
     "SOC2"
-  ]
+  ],
+  "order": 5
 }

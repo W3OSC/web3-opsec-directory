@@ -21,5 +21,6 @@
   "standards": [
     "SEAL",
     "DARC"
-  ]
+  ],
+  "order": 3
 }

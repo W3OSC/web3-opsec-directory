@@ -32,5 +32,6 @@
       "tool_slug": "red-guild-devcontainer-wizard"
     }
   ],
-  "standards": []
+  "standards": [],
+  "order": 22
 }

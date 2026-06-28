@@ -31,5 +31,6 @@
   ],
   "standards": [
     "SEAL"
-  ]
+  ],
+  "order": 8
 }

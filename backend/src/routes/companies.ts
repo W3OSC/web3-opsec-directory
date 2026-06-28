@@ -23,6 +23,7 @@ type CompanyJson = {
   badges?: string[];
   standards?: string[];
   endorsed?: boolean;
+  order?: number;
   github?: string | null;
   twitter?: string | null;
   open_source_repos?: { name: string; url: string; description?: string }[];
@@ -56,12 +57,16 @@ async function buildStarsMap(): Promise<Record<string, number>> {
   return map;
 }
 
-// Sort priority: endorsed > seal-partner > rest; within each tier, by combined tool stars desc.
-function sortCompanies<T extends { slug: string; endorsed: boolean | number; badges: string[] | string }>(
+// Sort by explicit order field when present, otherwise endorsed > seal-partner > stars.
+function sortCompanies<T extends { slug: string; endorsed: boolean | number; badges: string[] | string; order?: number }>(
   list: T[],
   starsMap: Record<string, number>
 ): T[] {
   return [...list].sort((a, b) => {
+    if (a.order != null && b.order != null) return a.order - b.order;
+    if (a.order != null) return -1;
+    if (b.order != null) return 1;
+
     const aEndorsed = a.endorsed === true || a.endorsed === 1 ? 1 : 0;
     const bEndorsed = b.endorsed === true || b.endorsed === 1 ? 1 : 0;
     if (aEndorsed !== bEndorsed) return bEndorsed - aEndorsed;
