@@ -61,7 +61,6 @@
   "standards": [
     "SEAL",
     "W3OS",
-    "DARC",
     "SOC2"
   ]
 }

@@ -19,6 +19,7 @@
     "seal-partner"
   ],
   "standards": [
-    "SEAL"
+    "SEAL",
+    "DARC"
   ]
 }
