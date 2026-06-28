@@ -1,6 +1,6 @@
 .PHONY: setup dev build deploy-prod setup-ec2 deploy-nginx setup-ssl renew-ssl encrypt-env decrypt-env setup-secrets install-deps security-check
 
-GCP_HOST  ?= root@<GCP_IP>
+GCP_HOST  ?= auditware@w3os.auditware.io
 PROD_PATH ?= /var/www/w3os
 
 # ─── Local ───────────────────────────────────────────────────────────────────
