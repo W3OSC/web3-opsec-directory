@@ -53,6 +53,15 @@ export default function CompanyCard({ company }: { company: Company }) {
     <div className="card flex flex-col justify-between gap-3">
       {/* Top content */}
       <div className="flex flex-col gap-3 flex-1">
+        {/* Standards — floated to top-right, content wraps around */}
+        {orderedStandards.length > 0 && (
+          <div className="float-right ml-3 flex flex-col gap-1.5 items-end">
+            {orderedStandards.map((std) => (
+              <StandardBadge key={std} standard={std} />
+            ))}
+          </div>
+        )}
+
         {/* Header: logo + name/url */}
         <div className="flex items-center gap-3 min-w-0">
           {company.logo ? (
@@ -88,19 +97,10 @@ export default function CompanyCard({ company }: { company: Company }) {
           </div>
         </div>
 
-        {/* Body: standards float top-right, description wraps around */}
-        <div className="flex-1">
-          {orderedStandards.length > 0 && (
-            <div className="float-right ml-3 flex flex-col gap-1.5 items-end">
-              {orderedStandards.map((std) => (
-                <StandardBadge key={std} standard={std} />
-              ))}
-            </div>
-          )}
-          <p className="text-sm text-gray-400 leading-relaxed">
-            {company.description}
-          </p>
-        </div>
+        {/* Body: description */}
+        <p className="flex-1 text-sm text-gray-400 leading-relaxed">
+          {company.description}
+        </p>
 
         {/* Tags — pinned to bottom of top content */}
         {company.tags.length > 0 && (
