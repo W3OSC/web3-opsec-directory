@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { useDebounce } from "use-debounce";
+import { useEffect, useState } from "react";
 import ToolCard from "@/components/ToolCard";
 import SearchBar from "@/components/SearchBar";
 import type { Tool } from "@/lib/types";
@@ -22,22 +21,25 @@ const SMART_CONTRACT_SLUGS = [
 ];
 
 export default function ToolsPage() {
-  const [tools, setTools] = useState<Tool[]>([]);
+  const [allTools, setAllTools] = useState<Tool[]>([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
-  const [debouncedSearch] = useDebounce(search, 300);
 
-  const fetchTools = useCallback(async () => {
-    setLoading(true);
-    try {
-      const data = await api.tools.list({ search: debouncedSearch });
-      setTools(data);
-    } finally {
+  // Fetch once on mount — no search param, filter client-side
+  useEffect(() => {
+    api.tools.list().then((data) => {
+      setAllTools(data);
       setLoading(false);
-    }
-  }, [debouncedSearch]);
+    });
+  }, []);
 
-  useEffect(() => { fetchTools(); }, [fetchTools]);
+  // Client-side filter — instant, no flicker
+  const q = search.trim().toLowerCase();
+  const tools = q
+    ? allTools.filter((t) =>
+        t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q)
+      )
+    : allTools;
 
   // Group tools by category
   const categorized = TOOL_CATEGORIES.map((cat) => ({
@@ -88,9 +90,9 @@ export default function ToolsPage() {
         </div>
       </div>
 
-      {loading ? null : tools.length === 0 ? (
+      {loading ? null : tools.length === 0 && q ? (
         <p className="text-gray-500 text-center py-20">No tools found.</p>
-      ) : (
+      ) : loading ? null : (
         <div className="space-y-5">
           {normalCats.map((cat) => (
             <section key={cat.name}>
@@ -105,30 +107,41 @@ export default function ToolsPage() {
             </section>
           ))}
 
-          {/* AI + Transactions merged row — each label sits above its own group */}
-          {mergedCats.length > 0 && (
-            <section>
-              <div className="flex items-stretch gap-2">
-                {mergedCats.map((cat, i) => (
-                  <div key={cat.name} className="contents">
-                    {i > 0 && <div className="w-px bg-surface-border flex-shrink-0" />}
-                    <div className="min-w-0" style={{ flex: cat.tools.length }}>
-                      <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                        {cat.name}
-                      </h2>
-                      <div className="flex gap-2">
-                        {cat.tools.map((t) => (
-                          <div key={t.slug} className="flex-1 min-w-0">
-                            <ToolCard tool={t} />
-                          </div>
-                        ))}
-                      </div>
+          {/* AI + Transactions — merged when both present, normal sections when only one matches */}
+          {mergedCats.length === 2 ? (() => {
+            const [first, second] = mergedCats as [typeof mergedCats[0], typeof mergedCats[0]];
+            return (
+              <section>
+                {/* Label row */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 mb-2">
+                  <h2 className={`text-xs font-semibold text-gray-500 uppercase tracking-wider border-r border-surface-border pr-2 ${first.tools.length > 1 ? "col-span-2" : ""}`}>
+                    {first.name}
+                  </h2>
+                  <h2 className={`text-xs font-semibold text-gray-500 uppercase tracking-wider ${second.tools.length > 1 ? `col-span-${second.tools.length}` : ""}`}>
+                    {second.name}
+                  </h2>
+                </div>
+                {/* Card row */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+                  {first.tools.map((t, i) => (
+                    <div key={t.slug} className={i === first.tools.length - 1 ? "border-r border-surface-border pr-2" : ""}>
+                      <ToolCard tool={t} />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                  {second.tools.map((t) => <ToolCard key={t.slug} tool={t} />)}
+                </div>
+              </section>
+            );
+          })() : mergedCats.map((cat) => (
+            <section key={cat.name}>
+              <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                {cat.name}
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+                {cat.tools.map((t) => <ToolCard key={t.slug} tool={t} />)}
               </div>
             </section>
-          )}
+          ))}
 
           {/* Smart Contract — full-width bottom row */}
           {smartContractTools.length > 0 && (
