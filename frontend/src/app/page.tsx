@@ -12,16 +12,15 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [standards, setStandards] = useState<string[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [debouncedSearch] = useDebounce(search, 300);
 
   const fetchCompanies = useCallback(async () => {
-    setLoading(true);
     try {
       const data = await api.companies.list({ search: debouncedSearch, tags, standards });
       setCompanies(data);
     } finally {
-      setLoading(false);
+      setInitialLoad(false);
     }
   }, [debouncedSearch, tags, standards]);
 
@@ -69,7 +68,7 @@ export default function HomePage() {
         />
       </div>
 
-      {loading ? (
+      {initialLoad ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="card animate-pulse h-44" />
