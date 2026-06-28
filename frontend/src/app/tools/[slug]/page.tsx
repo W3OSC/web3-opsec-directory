@@ -42,9 +42,9 @@ export default async function ToolPage({
   const maintainer = tool.maintainer as Company | null | undefined;
 
   return (
-    <div className="max-w-2xl mx-auto py-12 px-6">
+    <div className="max-w-3xl py-10">
       <Link
-        href="/"
+        href="/tools"
         className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-brand transition-colors mb-8"
       >
         <ArrowLeft size={14} /> Back

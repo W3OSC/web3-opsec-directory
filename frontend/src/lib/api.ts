@@ -1,6 +1,8 @@
 import type { Company, Tool } from "./types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+// Use relative paths so browser requests stay same-origin (proxied by Next.js rewrites).
+// Server-side code also works because Next.js resolves relative URLs correctly in RSC.
+const API_URL = "";
 
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {

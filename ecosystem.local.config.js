@@ -3,10 +3,10 @@ module.exports = {
     {
       name: "w3os-frontend-local",
       script: "npm",
-      args: "run dev -- -p 3100",
+      args: "run dev -- -p 3000",
       cwd: "./frontend",
       env: {
-        NEXT_PUBLIC_API_URL: "http://localhost:3101",
+        NEXT_PUBLIC_API_URL: "http://localhost:3001",
       },
     },
     {
@@ -16,8 +16,8 @@ module.exports = {
       cwd: "./backend",
       env_file: "./secrets/.env.backend.local",
       env: {
-        PORT: "3101",
-        CORS_ORIGIN: "http://localhost:3100",
+        PORT: "3001",
+        CORS_ORIGIN: "http://nuc:3113",
       },
     },
   ],
