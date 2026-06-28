@@ -23,7 +23,6 @@ type CompanyJson = {
   badges?: string[];
   standards?: string[];
   endorsed?: boolean;
-  order?: number;
   github?: string | null;
   twitter?: string | null;
   open_source_repos?: { name: string; url: string; description?: string }[];
@@ -57,27 +56,33 @@ async function buildStarsMap(): Promise<Record<string, number>> {
   return map;
 }
 
-// Sort by explicit order field when present, otherwise endorsed > seal-partner > stars.
-function sortCompanies<T extends { slug: string; endorsed: boolean | number; badges: string[] | string; order?: number }>(
+// Sort: endorsed > # standards > # tags > total stars > alphabetical
+function sortCompanies<T extends { slug: string; name: string; endorsed: boolean | number; tags: string[] | string; standards: string[] | string }>(
   list: T[],
   starsMap: Record<string, number>
 ): T[] {
   return [...list].sort((a, b) => {
-    if (a.order != null && b.order != null) return a.order - b.order;
-    if (a.order != null) return -1;
-    if (b.order != null) return 1;
-
+    // 1. Endorsed
     const aEndorsed = a.endorsed === true || a.endorsed === 1 ? 1 : 0;
     const bEndorsed = b.endorsed === true || b.endorsed === 1 ? 1 : 0;
     if (aEndorsed !== bEndorsed) return bEndorsed - aEndorsed;
 
-    const aBadges = Array.isArray(a.badges) ? a.badges : JSON.parse((a.badges as string) ?? "[]");
-    const bBadges = Array.isArray(b.badges) ? b.badges : JSON.parse((b.badges as string) ?? "[]");
-    const aSeal = aBadges.includes("seal-partner") ? 1 : 0;
-    const bSeal = bBadges.includes("seal-partner") ? 1 : 0;
-    if (aSeal !== bSeal) return bSeal - aSeal;
+    // 2. Number of standards
+    const aStandards = Array.isArray(a.standards) ? a.standards : JSON.parse((a.standards as string) ?? "[]");
+    const bStandards = Array.isArray(b.standards) ? b.standards : JSON.parse((b.standards as string) ?? "[]");
+    if (aStandards.length !== bStandards.length) return bStandards.length - aStandards.length;
 
-    return (starsMap[b.slug] ?? 0) - (starsMap[a.slug] ?? 0);
+    // 3. Number of tags (specializations)
+    const aTags = Array.isArray(a.tags) ? a.tags : JSON.parse((a.tags as string) ?? "[]");
+    const bTags = Array.isArray(b.tags) ? b.tags : JSON.parse((b.tags as string) ?? "[]");
+    if (aTags.length !== bTags.length) return bTags.length - aTags.length;
+
+    // 4. Total tool stars
+    const starsDiff = (starsMap[b.slug] ?? 0) - (starsMap[a.slug] ?? 0);
+    if (starsDiff !== 0) return starsDiff;
+
+    // 5. Alphabetical
+    return a.name.localeCompare(b.name);
   });
 }
 
