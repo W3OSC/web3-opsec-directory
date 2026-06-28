@@ -61,7 +61,7 @@ export default function CompanyCard({ company }: { company: Company }) {
   return (
     <div className="card flex flex-col justify-between gap-3">
       {/* Top content — block container so floats work correctly */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 after:content-[''] after:block after:clear-both">
         {/* Float standards top-right — flush with card edge */}
         {orderedStandards.length > 0 && (
           <div className="float-right -mr-6 ml-3 flex flex-col gap-1.5 items-end">
