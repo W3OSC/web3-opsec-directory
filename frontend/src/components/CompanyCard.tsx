@@ -64,7 +64,7 @@ export default function CompanyCard({ company }: { company: Company }) {
       <div className="flex-1 overflow-hidden">
         {/* Float standards top-right — flush with card edge */}
         {orderedStandards.length > 0 && (
-          <div className="float-right -mt-6 -mr-6 ml-3 flex flex-col gap-1.5 items-end">
+          <div className="float-right -mr-6 ml-3 flex flex-col gap-1.5 items-end">
             {orderedStandards.map((std) => (
               <StandardBadge key={std} standard={std} />
             ))}
