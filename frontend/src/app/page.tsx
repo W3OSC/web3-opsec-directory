@@ -38,7 +38,7 @@ export default function HomePage() {
 
   return (
     <div className="pt-10">
-      <div className="mb-10 flex items-start justify-between gap-8">
+      <div className="mb-6 flex items-start justify-between gap-8">
         <div className="flex-shrink-0">
           <h1 className="text-4xl font-bold text-white mb-3">
             Web3 Security Directory
@@ -57,8 +57,23 @@ export default function HomePage() {
             onSearch={setSearch}
             onTagToggle={toggleTag}
             onStandardToggle={toggleStandard}
+            showSearchInput
+            showFilters={false}
           />
         </div>
+      </div>
+
+      <div className="mb-8">
+        <SearchBar
+          search={search}
+          tags={tags}
+          standards={standards}
+          onSearch={setSearch}
+          onTagToggle={toggleTag}
+          onStandardToggle={toggleStandard}
+          showSearchInput={false}
+          showFilters
+        />
       </div>
 
       {initialLoad ? (

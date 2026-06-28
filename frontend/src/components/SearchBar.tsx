@@ -57,6 +57,8 @@ interface Props {
   onTagToggle: (tag: string) => void;
   onStandardToggle?: (standard: string) => void;
   showStandards?: boolean;
+  showSearchInput?: boolean;
+  showFilters?: boolean;
 }
 
 export default function SearchBar({
@@ -67,24 +69,28 @@ export default function SearchBar({
   onTagToggle,
   onStandardToggle,
   showStandards = true,
+  showSearchInput = true,
+  showFilters = true,
 }: Props) {
   return (
     <div className="space-y-3">
-      <div className="relative">
-        <Search
-          size={16}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-        />
-        <input
-          type="text"
-          placeholder="Search companies..."
-          value={search}
-          onChange={(e) => onSearch(e.target.value)}
-          className="w-full bg-surface-raised border border-surface-border rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand/60 transition-colors"
-        />
-      </div>
+      {showSearchInput && (
+        <div className="relative">
+          <Search
+            size={16}
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          />
+          <input
+            type="text"
+            placeholder="Search companies..."
+            value={search}
+            onChange={(e) => onSearch(e.target.value)}
+            className="w-full bg-surface-raised border border-surface-border rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand/60 transition-colors"
+          />
+        </div>
+      )}
 
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+      {showFilters && <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {showStandards && onStandardToggle && (
           <>
             <div className="flex items-center gap-2 flex-wrap">
@@ -124,7 +130,7 @@ export default function SearchBar({
             );
           })}
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
