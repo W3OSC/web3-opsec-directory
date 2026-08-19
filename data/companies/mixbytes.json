@@ -1,0 +1,20 @@
+{
+  "slug": "mixbytes",
+  "name": "MixBytes",
+  "description": "MixBytes is a blockchain security firm specializing in the analysis of decentralized protocols and smart contract systems. The company helps Web3 teams build resilient protocol architecture, smart contract logic, and economic mechanisms through a combination of AI-assisted analysis and senior human expertise, working with protocols across their entire lifecycle, from early architecture design to production audits and ongoing protocol evolution.",
+  "website": "https://mixbytes.io",
+  "logo": "/logos/mixbytes.svg",
+  "services": [
+    "web2-security",
+    "opsec"
+  ],
+  "tags": [
+    "smart-contracts",
+    "protocol-design",
+    "opsec"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/mixbytes",
+  "twitter": "https://x.com/MixBytes",
+  "open_source_repos": []
+}
