@@ -1,0 +1,23 @@
+{
+  "slug": "freezeradar",
+  "name": "FreezeRadar",
+  "description": "Wallet risk intelligence for freezeable assets (USDT, USDC, PAXG, XAUt). Checks issuer blacklist status, sanctions exposure, and live freeze/release activity for OTC desks, exchanges, and compliance teams.",
+  "website": "https://freezeradar.com",
+  "logo": "https://freezeradar.com/icon-512.png",
+  "services": [
+    "blockchain-forensics",
+    "threat-intelligence",
+    "osint"
+  ],
+  "tags": [
+    "aml",
+    "sanctions",
+    "stablecoins",
+    "wallet-risk",
+    "compliance"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/mehdiraized",
+  "twitter": null,
+  "open_source_repos": []
+}
