@@ -1,0 +1,13 @@
+{
+  "slug": "hackerbane",
+  "name": "Hackerbane",
+  "description": "Hackerbane audits smart contracts, blockchain clients, and the software around them, and prepares the evidence for DORA, SOC 2, ISO 27001, and CCSS. Published reports cover Solidity, Rust, and Move systems. The firm is in Dubai.",
+  "website": "https://hackerbane.com",
+  "logo": "",
+  "services": ["infrastructure", "key-management", "web2-security"],
+  "tags": ["smart-contracts", "compliance"],
+  "endorsed": false,
+  "github": "https://github.com/hackerbane-audits",
+  "twitter": "https://x.com/hackerbane",
+  "open_source_repos": []
+}
