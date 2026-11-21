@@ -1,0 +1,46 @@
+{
+  "slug": "mevdao",
+  "name": "MEV DAO",
+  "description": "Ethereum MEV and wallet-security team. Runs Flashbots-bundle rescues that move assets out of compromised wallets before sweeper bots can take them, and publishes free open-source tools for EIP-7702 delegation checks and MEV bot scam detection.",
+  "website": "https://mevdao.org",
+  "logo": "",
+  "services": ["incident-response", "key-management"],
+  "tags": ["wallet-security", "sweeper-bot", "flashbots", "eip-7702", "mev"],
+  "endorsed": false,
+  "github": "https://github.com/mevdao-org",
+  "twitter": null,
+  "open_source_repos": [
+    {
+      "name": "EIP-7702 Delegation Checker & Revoker",
+      "url": "https://github.com/mevdao-org/eip-7702-delegation-checker-revoker",
+      "description": "Scans addresses for EIP-7702 delegations across chains and revokes them with a sponsored Type-4 transaction."
+    },
+    {
+      "name": "Solidity MEV Bot Scam Detector",
+      "url": "https://github.com/mevdao-org/solidity-mev-bot-scam-detector",
+      "description": "Flags the hidden-withdrawal patterns used in fake Solidity MEV bot contracts."
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
