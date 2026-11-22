@@ -1,0 +1,29 @@
+{
+  "slug": "unsweep",
+  "name": "UNSWEEP",
+  "description": "Incident-response tool for rescuing ERC-20 tokens from wallets compromised by sweeper bots on Base and Arbitrum using EIP-7702 atomic sponsored transactions. Read-only diagnostics, local signing without seed phrase collection, and verifiable on-chain contracts.",
+  "website": "https://unsweep.com",
+  "logo": "/logos/unsweep.svg",
+  "services": [
+    "incident-response"
+  ],
+  "tags": [
+    "incident-response",
+    "sweeper-bot",
+    "eip-7702",
+    "token-rescue",
+    "base",
+    "arbitrum"
+  ],
+  "endorsed": false,
+  "github": "https://github.com/unsweep",
+  "twitter": null,
+  "open_source_repos": [
+    {
+      "name": "UNSWEEP",
+      "url": "https://github.com/unsweep/unsweep",
+      "description": "EIP-7702 atomic token rescue contracts and diagnostics for sweeper-compromised wallets on Base and Arbitrum.",
+      "tool_slug": "unsweep"
+    }
+  ]
+}
