@@ -1,0 +1,15 @@
+{
+  "slug": "unsweep",
+  "name": "UNSWEEP",
+  "description": "Open-source EIP-7702 delegate contracts and read-only wallet diagnostics for rescuing ERC-20 tokens from sweeper-compromised wallets on Base and Arbitrum without sending ETH for gas.",
+  "repo_url": "https://github.com/unsweep/unsweep",
+  "maintainer_slug": "unsweep",
+  "tags": [
+    "open-source",
+    "incident-response",
+    "eip-7702",
+    "sweeper-bot",
+    "token-rescue"
+  ],
+  "stars": 0
+}
